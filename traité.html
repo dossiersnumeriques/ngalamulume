@@ -1,0 +1,395 @@
+<!DOCTYPE html><html class="light" lang="fr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Enregistrement d'un Dossier Traité </title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-secondary-container": "#fefcff",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2d3133",
+                    "on-background": "#191c1e",
+                    "inverse-primary": "#bec6e0",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-surface-variant": "#45464d",
+                    "outline": "#76777d",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface": "#f7f9fb",
+                    "secondary": "#0058be",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#c6c6cd",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container": "#eceef0",
+                    "surface-tint": "#565e74",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-secondary-fixed": "#001a42",
+                    "on-primary-container": "#7c839b",
+                    "secondary-container": "#2170e4",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "background": "#f7f9fb",
+                    "tertiary": "#000000",
+                    "on-primary-fixed": "#131b2e",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-surface": "#191c1e",
+                    "surface-variant": "#e0e3e5",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "primary": "#000000",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#0b1c30",
+                    "primary-container": "#131b2e",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dae2fd",
+                    "on-tertiary-container": "#75859d",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "sm": "0.5rem",
+                    "margin-mobile": "1rem",
+                    "base": "4px",
+                    "lg": "1.5rem",
+                    "md": "1rem",
+                    "xl": "2rem",
+                    "max-width": "1440px",
+                    "gutter": "1.5rem",
+                    "xs": "0.25rem"
+            },
+            "fontFamily": {
+                    "title-md": ["Bai Jamjuree"],
+                    "display-lg": ["Bai Jamjuree"],
+                    "body-lg": ["Bai Jamjuree"],
+                    "headline-lg-mobile": ["Bai Jamjuree"],
+                    "label-md": ["Bai Jamjuree"],
+                    "headline-lg": ["Bai Jamjuree"],
+                    "code-sm": ["JetBrains Mono"],
+                    "body-md": ["Bai Jamjuree"]
+            },
+            "fontSize": {
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "code-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Bai Jamjuree', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #0058be !important;
+            box-shadow: 0 0 0 2px rgba(0, 88, 190, 0.1);
+        }
+        .signature-pad {
+            background-image: repeating-linear-gradient(0deg, #f1f5f9 0px, #f1f5f9 1px, transparent 1px, transparent 20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-max-width mx-auto h-16">
+<div class="flex items-center gap-8">
+<span class="font-title-md text-title-md font-bold text-secondary dark:text-secondary-fixed-dim">Dieudo Consulting</span>
+<div class="hidden md:flex gap-6 items-center">
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html">Accueil</a>
+    <a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-bold" href="#">Dossier traité</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="depot.html">Dépot de Dossier</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="tableau_bord.html">Tableau de Bord</a>
+  
+</div>
+</div>
+</nav>
+<main class="flex-grow w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<!-- Page Header -->
+<header class="mb-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">Dossiers</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-md text-label-md text-secondary">Enregistrement</span>
+</nav>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Enregistrement d'un Dossier Traité</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Veuillez renseigner les informations finales pour l'archivage du dossier client.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-lg py-2 border border-outline-variant text-on-surface-variant font-semibold rounded hover:bg-surface-container transition-colors font-label-md text-label-md uppercase tracking-wider">
+                        Annuler
+                    </button>
+<button class="px-lg py-2 bg-secondary text-on-secondary font-semibold rounded hover:bg-secondary-container transition-all shadow-sm font-label-md text-label-md uppercase tracking-wider">
+                        Enregistrer le dossier
+                    </button>
+</div>
+</div>
+</header>
+<!-- Form Content - Asymmetric Grid -->
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Primary Info -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Section 1: Informations du client -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg overflow-hidden relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-secondary">person</span>
+<h2 class="font-title-md text-title-md">Informations du client</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Nom</label>
+<input class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md" placeholder="Ex: Dupont" type="text">
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Prénom</label>
+<input class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md" placeholder="Ex: Jean-Marc" type="text">
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Numéro de dossier attribué</label>
+<input class="bg-surface-container-high border border-outline-variant rounded px-md py-2 font-code-sm text-secondary font-bold" type="text" value="LEX-2024-0892">
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Téléphone</label>
+<input class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md" placeholder="+33 1 00 00 00 00" type="tel">
+</div>
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Email</label>
+<input class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md" placeholder="jean.marc@example.com" type="email">
+</div>
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Adresse</label>
+<textarea class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md resize-none" placeholder="15 Rue de la Paix, 75002 Paris" rows="2"></textarea>
+</div>
+</div>
+</section>
+<!-- Section 2: Résumé du dossier -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg overflow-hidden relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-secondary">description</span>
+<h2 class="font-title-md text-title-md">Résumé du dossier</h2>
+</div>
+<div class="flex flex-col gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Objet initial de la consultation</label>
+<textarea class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md" placeholder="Décrivez l'objet de la demande..." rows="4"></textarea>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Documents traités</label>
+<input type="file" class="hidden" id="file-upload-docs" multiple=""><div class="border-2 border-dashed border-outline-variant rounded-lg p-xl flex flex-col items-center justify-center bg-surface hover:bg-surface-container-low transition-colors cursor-pointer" onclick="document.getElementById('file-upload-docs').click()">
+<span class="material-symbols-outlined text-[48px] text-outline-variant mb-md">cloud_upload</span>
+<p class="font-body-md text-on-surface text-center">Glissez vos fichiers ici ou <span class="text-secondary font-bold">parcourez vos dossiers</span></p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-2">PDF, DOCX, JPG (Max 25MB)</p>
+</div>
+<div class="mt-md flex flex-wrap gap-sm" id="file-list-container">
+<div class="flex items-center gap-2 bg-surface-container px-3 py-1 rounded border border-outline-variant">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">picture_as_pdf</span>
+<span class="font-label-md text-label-md">Contrat_Signe.pdf</span>
+<button class="material-symbols-outlined text-[16px] text-error hover:scale-110" type="button">close</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Observations -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg overflow-hidden relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-secondary">visibility</span>
+<h2 class="font-title-md text-title-md">Observations complémentaires</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Notes internes du cabinet</label>
+<textarea class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md" placeholder="Notes non visibles par le client..." rows="4"></textarea>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Commentaires particuliers</label>
+<textarea class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md" placeholder="Alertes ou points de vigilance..." rows="4"></textarea>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar / Meta & Validation -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<!-- Section 3: Validation interne -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg sticky top-24">
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<h2 class="font-title-md text-title-md">Validation interne</h2>
+</div>
+<div class="flex flex-col gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Consultant responsable</label>
+<div class="relative">
+<select class="w-full bg-surface border border-outline-variant rounded px-md py-2 font-body-md appearance-none">
+<option>Me. Dieudonné NGALAMULUME</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Date de clôture</label>
+<input class="bg-surface border border-outline-variant rounded px-md py-2 font-body-md" type="date" value="2024-10-27">
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase">Signature numérique</label>
+<div class="signature-pad h-32 w-full border border-outline-variant rounded bg-surface relative overflow-hidden group">
+<div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:opacity-60 transition-opacity pointer-events-none">
+<span class="font-label-md text-label-md text-on-surface-variant italic">Signez ici</span>
+</div>
+<canvas class="absolute inset-0 w-full h-full cursor-crosshair" id="signatureCanvas" width="332" height="126"></canvas>
+</div>
+<button class="text-right font-label-md text-label-md text-secondary hover:underline mt-1" type="button">Effacer la signature</button>
+</div>
+<div class="mt-md p-md bg-secondary/5 rounded border border-secondary/20">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">info</span>
+<p class="font-body-md text-body-md text-secondary leading-tight">
+                                    L'enregistrement du dossier déclenchera l'archivage automatique et l'envoi de la facture de clôture.
+                                </p>
+</div>
+</div>
+<button class="w-full mt-md px-lg py-4 bg-secondary text-on-secondary font-bold rounded hover:bg-secondary-container transition-all shadow-md font-label-md text-label-md uppercase tracking-widest flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined">save</span>
+                            Enregistrer le dossier
+                        </button>
+<button class="w-full px-lg py-3 border border-outline text-on-surface-variant font-semibold rounded hover:bg-surface-container-high transition-colors font-label-md text-label-md uppercase tracking-wider" type="button">
+                            Annuler
+                        </button>
+</div>
+</section>
+<!-- Helpful Quick Links / Stats Card -->
+
+</div>
+</form>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-high border-t border-outline-variant dark:border-outline mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-lg max-w-max-width mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-title-md text-title-md text-secondary dark:text-secondary-fixed-dim">Dieudo Consulting</span>
+<span class="font-label-md text-label-md text-on-surface dark:text-inverse-on-surface opacity-70">©  Dieudo Consulting. All rights reserved.</span>
+</div>
+<div class="flex gap-6 mt-lg md:mt-0">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200" href="#">Privacy</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200" href="#">Terms</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200" href="#">Cookie Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary-fixed-dim transition-all duration-200" href="#">Regulatory Disclosure</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for the signature pad
+        const canvas = document.getElementById('signatureCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let drawing = false;
+
+            const startDrawing = (e) => {
+                drawing = true;
+                draw(e);
+            };
+
+            const endDrawing = () => {
+                drawing = false;
+                ctx.beginPath();
+            };
+
+            const draw = (e) => {
+                if (!drawing) return;
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = '#001a42';
+
+                const rect = canvas.getBoundingClientRect();
+                const x = (e.clientX || e.touches[0].clientX) - rect.left;
+                const y = (e.clientY || e.touches[0].clientY) - rect.top;
+
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+            };
+
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mouseup', endDrawing);
+            canvas.addEventListener('mousemove', draw);
+            
+            canvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                startDrawing(e);
+            });
+            canvas.addEventListener('touchend', endDrawing);
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                draw(e);
+            });
+            
+            // Handle clearing
+            document.querySelector('button[type="button"].text-secondary.hover\\:underline').addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
+
+            // Adjust canvas size for resolution
+            const resize = () => {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            };
+            window.addEventListener('resize', resize);
+            resize();
+        }
+    </script>
+
+
+<script>
+    const fileInput = document.getElementById('file-upload-docs');
+    const container = document.getElementById('file-list-container');
+
+    fileInput.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files);
+        files.forEach(file => {
+            const fileItem = document.createElement('div');
+            fileItem.className = 'flex items-center gap-2 bg-surface-container px-3 py-1 rounded border border-outline-variant';
+            fileItem.innerHTML = `
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant">description</span>
+                <span class="font-label-md text-label-md">${file.name}</span>
+                <button class="material-symbols-outlined text-[16px] text-error hover:scale-110" type="button" onclick="this.parentElement.remove()">close</button>
+            `;
+            container.appendChild(fileItem);
+        });
+    });
+</script>
+
+</body></html>
