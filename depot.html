@@ -136,7 +136,7 @@
                     <div class="space-y-md">
                         <label class="flex items-start gap-md cursor-pointer group">
                             <input required class="mt-1 rounded text-secondary focus:ring-secondary h-5 w-5 border-outline-variant" type="checkbox">
-                            <span class="font-body-md text-body-md text-on-surface-variant">Je reconnais avoir pris connaissance de la clause de confidentialité...</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Je reconnais avoir pris connaissance de la clause de confidentialité et j'accepte le traitement de mes données.</span>
                         </label>
                         <div class="pt-md grid grid-cols-1 md:grid-cols-2 gap-md">
                             <div class="space-y-xs">
@@ -182,22 +182,21 @@
 
     <div id="statusModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden backdrop-blur-sm">
         <div class="bg-white rounded-xl p-lg max-w-sm w-full mx-margin-mobile text-center shadow-xl border border-outline-variant">
-            <div id="modalIconContainer" class="mb-md">
-                </div>
-            <h3 id="modalTitle" class="font-title-md text-title-md text-primary mb-xs">Traitement en cours</h3>
-            <p id="modalMessage" class="font-body-md text-body-md text-on-surface-variant mb-md">Veuillez patienter pendant l'envoi de votre dossier...</p>
+            <div id="modalIconContainer" class="mb-md"></div>
+            <h3 id="modalTitle" class="font-title-md text-title-md mb-xs">Traitement en cours</h3>
+            <p id="modalMessage" class="font-body-md text-body-md text-on-surface-variant mb-md">Veuillez patienter...</p>
             <button id="modalCloseBtn" class="hidden bg-secondary text-on-secondary px-xl py-sm rounded font-body-md hover:opacity-90 w-full">Fermer</button>
         </div>
     </div>
 
     <script>
-        // Remplacer par l'URL récupérée à la fin de l'étape 2
-        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxPegBevBBnsfUGMAYAd6Kln0JT9XtPT1lDh11IIiTytZgRxgc_JmiZYoxkYBRJ09eqjw/exec";
+        // COLLER ICI L'URL OBTENUE APRÈS LE DÉPLOIEMENT APPS SCRIPT
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZVrLt7XXEj5TmtOeOZXUlTDbmefoGWuO-DlO8J2ajJYQp7k3r1vptM66u2voyMTZlcw/exec";
 
-        // Initialiser la date du jour par défaut
+        // Date du jour automatique
         document.getElementById('dateSignature').value = new Date().toISOString().split('T')[0];
 
-        // Gestion Drag & Drop / Input File personnalisé
+        // Gestion Drag & Drop / Input File
         const dropZone = document.getElementById('drop-zone');
         const fileInput = document.getElementById('file-input');
         const uploadText = document.getElementById('upload-text');
@@ -214,14 +213,11 @@
                 const file = files[0];
                 uploadIcon.textContent = 'check_circle';
                 uploadIcon.classList.replace('text-outline', 'text-secondary');
-                uploadText.innerHTML = `<span class="font-bold text-secondary">Fichier :</span> <br/> ${file.name}`;
-                uploadHint.textContent = "Cliquez pour changer de fichier";
+                uploadText.innerHTML = `<span class="font-bold text-secondary">Fichier prêt :</span> <br/> ${file.name}`;
+                uploadHint.textContent = "Cliquez à nouveau pour changer";
                 
-                // Conversion du fichier en Base64 pour l'envoi vers l'API
                 const reader = new FileReader();
-                reader.onload = function(event) {
-                    base64FileData = event.target.result;
-                };
+                reader.onload = function(event) { base64FileData = event.target.result; };
                 reader.readAsDataURL(file);
             }
         }
@@ -230,7 +226,7 @@
         dropZone.addEventListener('dragleave', () => dropZone.classList.remove('bg-secondary-container/10'));
         dropZone.addEventListener('drop', (e) => { e.preventDefault(); fileInput.files = e.dataTransfer.files; handleFileSelect(e); });
 
-        // Gestionnaire d'affichage du Modal de Status
+        // Gestionnaire d'affichage du Modal de Statut
         const modal = document.getElementById('statusModal');
         const modalIconContainer = document.getElementById('modalIconContainer');
         const modalTitle = document.getElementById('modalTitle');
@@ -243,73 +239,70 @@
             
             if (type === 'pending') {
                 modalIconContainer.innerHTML = '<div class="animate-spin inline-block w-12 h-12 border-4 border-secondary border-t-transparent rounded-full"></div>';
-                modalTitle.textContent = "Traitement en cours...";
+                modalTitle.textContent = "Traitement en cours";
                 modalTitle.className = "font-title-md text-title-md text-secondary mb-xs";
-                modalMessage.textContent = "Nous enregistrons vos données et vos pièces jointes dans Google Cloud. Veuillez patienter.";
+                modalMessage.textContent = "Transfert sécurisé des données et documents vers votre Google Cloud en cours...";
             } else if (type === 'success') {
                 modalIconContainer.innerHTML = '<span class="material-symbols-outlined text-5xl text-emerald-600">check_circle</span>';
                 modalTitle.textContent = "Traitement effectué !";
                 modalTitle.className = "font-title-md text-title-md text-emerald-600 mb-xs";
-                modalMessage.textContent = "Votre dossier a été enregistré avec succès dans Google Sheets et Drive.";
+                modalMessage.textContent = "Les données textuelles ont été ajoutées à la feuille Sheets et les fichiers ont été déposés sur Drive.";
                 modalCloseBtn.classList.remove('hidden');
             } else {
                 modalIconContainer.innerHTML = '<span class="material-symbols-outlined text-5xl text-error">error</span>';
-                modalTitle.textContent = "Échec du traitement";
+                modalTitle.textContent = "Erreur de synchronisation";
                 modalTitle.className = "font-title-md text-title-md text-error mb-xs";
-                modalMessage.textContent = "Une erreur est survenue lors de la synchronisation. Veuillez réessayer.";
+                modalMessage.textContent = "Une anomalie est survenue lors de l'intégration. Veuillez vérifier votre connexion.";
                 modalCloseBtn.classList.remove('hidden');
             }
         }
 
         modalCloseBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
-        // Envoi des données du formulaire à Google Apps Script
-        // Remplacez la fonction de soumission finale par celle-ci :
-document.getElementById('consultationForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    showStatus('pending');
+        // Soumission vers l'API via XMLHttpRequest pour contourner les verrous CORS locaux
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showStatus('pending');
 
-    const payload = {
-        nom: document.getElementById('nomContact').value,
-        lien: document.getElementById('lienContact').value,
-        telephone: document.getElementById('telContact').value,
-        email: document.getElementById('emailContact').value,
-        service: document.getElementById('typeService').value,
-        resume: document.getElementById('resumeSituation').value,
-        antecedents: document.getElementById('antecedents').value,
-        signature: document.getElementById('signature').value,
-        date: document.getElementById('dateSignature').value,
-        numDossier: document.getElementById('numDossier').value,
-        notes: document.getElementById('notesInternes').value,
-        fileName: fileInput.files[0] ? fileInput.files[0].name : null,
-        fileType: fileInput.files[0] ? fileInput.files[0].type : null,
-        fileData: base64FileData
-    };
+            const payload = {
+                nom: document.getElementById('nomContact').value,
+                lien: document.getElementById('lienContact').value,
+                telephone: document.getElementById('telContact').value,
+                email: document.getElementById('emailContact').value,
+                service: document.getElementById('typeService').value,
+                resume: document.getElementById('resumeSituation').value,
+                antecedents: document.getElementById('antecedents').value,
+                signature: document.getElementById('signature').value,
+                date: document.getElementById('dateSignature').value,
+                numDossier: document.getElementById('numDossier').value,
+                notes: document.getElementById('notesInternes').value,
+                fileName: fileInput.files[0] ? fileInput.files[0].name : null,
+                fileType: fileInput.files[0] ? fileInput.files[0].type : null,
+                fileData: base64FileData
+            };
 
-    // Utilisation de l'ancienne méthode d'envoi robuste pour éviter les soucis CORS croisés
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", APPS_SCRIPT_URL, true);
-    xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            // Ici on intercepte enfin le vrai résultat de Google
-            showStatus('success');
-            document.getElementById('consultationForm').reset();
-            base64FileData = null;
-            uploadIcon.textContent = 'cloud_upload';
-            uploadText.textContent = "Cliquez pour téléverser ou glissez-déposez vos fichiers";
-            document.getElementById('dateSignature').value = new Date().toISOString().split('T')[0];
-        }
-    };
-    
-    xhr.onerror = function() {
-        showStatus('error');
-    };
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", APPS_SCRIPT_URL, true);
+            xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    showStatus('success');
+                    document.getElementById('consultationForm').reset();
+                    base64FileData = null;
+                    uploadIcon.textContent = 'cloud_upload';
+                    uploadIcon.classList.replace('text-secondary', 'text-outline');
+                    uploadText.textContent = "Cliquez pour téléverser ou glissez-déposez vos fichiers";
+                    document.getElementById('dateSignature').value = new Date().toISOString().split('T')[0];
+                }
+            };
+            
+            xhr.onerror = function() {
+                showStatus('error');
+            };
 
-    xhr.send(JSON.stringify(payload));
-});
-        
+            xhr.send(JSON.stringify(payload));
+        });
     </script>
 </body>
 </html>
