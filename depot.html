@@ -174,7 +174,7 @@
         </section>
 <!-- ... en haut du fichier ... -->
 
-<form id="dossierForm" action="https://script.google.com/macros/s/AKfycby-Lc9sJbPD_UXmb9OQsxxZiBzizLw3qbb2ItatwYt4UOh1TQGnWQZaiigyQ1Ytkkc1/exec" method="post" enctype="multipart/form-data" target="_blank">
+<form id="dossierForm" action="https://script.google.com/macros/s/AKfycbyA1d5PAZLv4mdZplePkDi5M2SZQi9SF1L9E-zik--hSSoW8b7NqBDG8Ew7tnnS3Q2n/exec" method="post" enctype="multipart/form-data" target="_blank">
   <!-- Left Column: Form Content -->
   <div class="lg:col-span-8 space-y-lg">
     <!-- Section 1: Informations personnelles -->
@@ -290,9 +290,14 @@
   </div>
 
      <input type="hidden" name="mode" value="formSubmit">
+    <input type="hidden" name="fileData" id="fileData" />
+  <input type="hidden" name="fileName" id="fileName" />
+  <input type="hidden" name="mimeType" id="mimeType" />
   <!-- ... aside (droite) inchangé ... -->
 </form>
     </main>
+
+    
     <!-- Footer -->
     <footer class="bg-surface-container-high border-t border-outline-variant mt-xl">
         <div
@@ -315,6 +320,28 @@
             </nav>
         </div>
     </footer>
+
+<script>
+  const fileInput = document.getElementById('file-input');
+  const fileDataInput = document.getElementById('fileData');
+  const fileNameInput = document.getElementById('fileName');
+  const mimeTypeInput = document.getElementById('mimeType');
+
+  fileInput.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        const base64 = ev.target.result.split(',')[1];
+        fileDataInput.value = base64;
+        fileNameInput.value = file.name;
+        mimeTypeInput.value = file.type;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
+    
     <script>
         const dropZone = document.getElementById('drop-zone');
         const fileInput = document.getElementById('file-input');
