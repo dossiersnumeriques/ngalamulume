@@ -187,12 +187,12 @@
                                 contact</label>
                             <input
                                 class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
-                                placeholder="Jean Dupont" type="text">
+                                placeholder="Jean Dupont" type="text" name="nom">
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Lien avec le
                                 déposant</label>
-                            <select
+                            <select name="lien"
                                 class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md">
                                 <option>Direct (Moi-même)</option>
                                 <option>Collègue</option>
@@ -202,13 +202,13 @@
                             <label class="font-label-md text-label-md text-on-surface-variant">Téléphone</label>
                             <input
                                 class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
-                                placeholder="+33 1 23 45 67 89" type="tel">
+                                placeholder="+33 1 23 45 67 89" type="tel" name="telephone">
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Email</label>
                             <input
                                 class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
-                                placeholder="jean.dupont@email.com" type="email">
+                                placeholder="jean.dupont@email.com" type="email" name="email">
                         </div>
                     </div>
                 </div>
@@ -222,7 +222,7 @@
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Type de service
                                 demandé</label>
-                            <select
+                            <select name="typeService"
                                 class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md">
                                 <option>Juridique</option>
                                 <option>Administratif</option>
@@ -257,13 +257,13 @@
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Résumé de la situation ou
                                 du problème</label>
-                            <textarea
+                            <textarea name="resume"
                                 class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
                                 placeholder="Décrivez brièvement votre situation actuelle..." rows="4"></textarea>
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Antécédents</label>
-                            <textarea
+                            <textarea name="antecedents"
                                 class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
                                 placeholder="Consultations précédentes, démarches déjà entreprises..."
                                 rows="3"></textarea>
@@ -271,7 +271,7 @@
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Informations
                                 complémentaires utiles</label>
-                            <textarea
+                            <textarea name="complement"
                                 class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
                                 placeholder="Toute autre information pertinente..." rows="2"></textarea>
                         </div>
@@ -298,7 +298,7 @@
                                 class="mt-1 rounded text-secondary focus:ring-secondary h-5 w-5 border-outline-variant"
                                 type="checkbox">
                             <span class="font-body-md text-body-md text-on-surface-variant">J'accorde mon accord
-                                explicite sur l’utilisation des informations fournies par LexAdmin Consulting dans le
+                                explicite sur l’utilisation des informations fournies par Dieudo Consulting dans le
                                 cadre de l'analyse de ce dossier.</span>
                         </label>
                         <div class="pt-md grid grid-cols-1 md:grid-cols-2 gap-md">
@@ -307,13 +307,13 @@
                                     (Numérique ou nom complet)</label>
                                 <input
                                     class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md italic"
-                                    placeholder="Signé par : Nom Prénom" type="text">
+                                    placeholder="Signé par : Nom Prénom" type="text" name="signature">
                             </div>
                             <div class="space-y-xs">
                                 <label class="font-label-md text-label-md text-on-surface-variant">Date</label>
                                 <input
                                     class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
-                                    type="date" value="2024-05-24">
+                                    type="date" value="2024-05-24" name="dateSignature">
                             </div>
                         </div>
                     </div>
@@ -345,7 +345,7 @@
                                 attribué</label>
                             <input
                                 class="w-full rounded border-outline-variant bg-surface-container px-md py-sm font-code-sm focus:border-secondary focus:ring-1 focus:ring-secondary"
-                                type="text" value="LX-2024-PENDING">
+                                type="text" value="LX-2024-PENDING" name=numeroDossier>
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Date de réception</label>
@@ -458,7 +458,83 @@
         }
     </script>
 
+    <script>
+// Remplacez par l'URL de votre Web App Google Apps Script
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyOXkpdxml1LC8yMQ_dNhOGD9FTGFxayFr0_WZ1BU7pY-BCrluiT74O2MhjsNT29jtfHA/exec";
 
+document.querySelector("form").addEventListener("submit", async function(event) {
+  event.preventDefault(); // Empêche l'envoi classique
+  
+  // Récupération des valeurs via les attributs name
+  const formData = new FormData(this);
+  const data = {
+    nom: formData.get("nom"),
+    lien: formData.get("lien"),
+    telephone: formData.get("telephone"),
+    email: formData.get("email"),
+    typeService: formData.get("typeService"),
+    resume: formData.get("resume"),
+    antecedents: formData.get("antecedents"),
+    complement: formData.get("complement"),
+    signature: formData.get("signature"),
+    dateSignature: formData.get("dateSignature"),
+    numeroDossier: formData.get("numeroDossier")
+  };
+
+  // Gestion du fichier uploadé (s'il existe)
+  const fileInput = document.getElementById('file-input');
+  let fileBase64 = "", fileName = "", fileMimeType = "";
+  
+  if (fileInput.files.length > 0) {
+    const file = fileInput.files[0];
+    fileName = file.name;
+    fileMimeType = file.type;
+    fileBase64 = await toBase64(file);
+  }
+
+  // Envoi vers la Web App
+  try {
+    const response = await fetch(WEB_APP_URL, {
+      method: "POST",
+      body: JSON.stringify({ ...data, fileBase64, fileName, fileMimeType }),
+      headers: { "Content-Type": "application/json" }
+    });
+    
+    const result = await response.json();
+    if (result.success) {
+      alert("✅ " + result.message);
+      // Réinitialiser le formulaire
+      document.querySelector("form").reset();
+      // Réinitialiser l'interface upload
+      const uploadIcon = document.getElementById('upload-icon');
+      const uploadText = document.getElementById('upload-text');
+      const uploadHint = document.getElementById('upload-hint');
+      const dropZone = document.getElementById('drop-zone');
+      
+      uploadIcon.textContent = 'cloud_upload';
+      uploadIcon.classList.remove('text-secondary');
+      uploadIcon.classList.add('text-outline');
+      uploadText.innerHTML = 'Cliquez pour téléverser ou glissez-déposez vos fichiers';
+      uploadHint.textContent = 'PDF, JPG, PNG (Max. 10MB)';
+      dropZone.classList.remove('bg-secondary-container/5', 'border-secondary');
+    } else {
+      alert("❌ Erreur : " + result.message);
+    }
+  } catch (error) {
+    alert("❌ Erreur réseau : " + error.message);
+  }
+});
+
+// Fonction utilitaire : conversion fichier en base64
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+</script>
 
 
 </body>
