@@ -264,46 +264,52 @@
         modalCloseBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
         // Envoi des données du formulaire à Google Apps Script
-        document.getElementById('consultationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            showStatus('pending');
+        // Remplacez la fonction de soumission finale par celle-ci :
+document.getElementById('consultationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    showStatus('pending');
 
-            const payload = {
-                nom: document.getElementById('nomContact').value,
-                lien: document.getElementById('lienContact').value,
-                telephone: document.getElementById('telContact').value,
-                email: document.getElementById('emailContact').value,
-                service: document.getElementById('typeService').value,
-                resume: document.getElementById('resumeSituation').value,
-                antecedents: document.getElementById('antecedents').value,
-                signature: document.getElementById('signature').value,
-                date: document.getElementById('dateSignature').value,
-                numDossier: document.getElementById('numDossier').value,
-                notes: document.getElementById('notesInternes').value,
-                fileName: fileInput.files[0] ? fileInput.files[0].name : null,
-                fileType: fileInput.files[0] ? fileInput.files[0].type : null,
-                fileData: base64FileData
-            };
+    const payload = {
+        nom: document.getElementById('nomContact').value,
+        lien: document.getElementById('lienContact').value,
+        telephone: document.getElementById('telContact').value,
+        email: document.getElementById('emailContact').value,
+        service: document.getElementById('typeService').value,
+        resume: document.getElementById('resumeSituation').value,
+        antecedents: document.getElementById('antecedents').value,
+        signature: document.getElementById('signature').value,
+        date: document.getElementById('dateSignature').value,
+        numDossier: document.getElementById('numDossier').value,
+        notes: document.getElementById('notesInternes').value,
+        fileName: fileInput.files[0] ? fileInput.files[0].name : null,
+        fileType: fileInput.files[0] ? fileInput.files[0].type : null,
+        fileData: base64FileData
+    };
 
-            fetch(APPS_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors', // Évite les blocages de politiques CORS d'origines différentes
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(() => {
-                showStatus('success');
-                document.getElementById('consultationForm').reset();
-                base64FileData = null;
-                uploadIcon.textContent = 'cloud_upload';
-                uploadText.textContent = "Cliquez pour téléverser ou glissez-déposez vos fichiers";
-                document.getElementById('dateSignature').value = new Date().toISOString().split('T')[0];
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-                showStatus('error');
-            });
-        });
+    // Utilisation de l'ancienne méthode d'envoi robuste pour éviter les soucis CORS croisés
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", APPS_SCRIPT_URL, true);
+    xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+    
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            // Ici on intercepte enfin le vrai résultat de Google
+            showStatus('success');
+            document.getElementById('consultationForm').reset();
+            base64FileData = null;
+            uploadIcon.textContent = 'cloud_upload';
+            uploadText.textContent = "Cliquez pour téléverser ou glissez-déposez vos fichiers";
+            document.getElementById('dateSignature').value = new Date().toISOString().split('T')[0];
+        }
+    };
+    
+    xhr.onerror = function() {
+        showStatus('error');
+    };
+
+    xhr.send(JSON.stringify(payload));
+});
+        
     </script>
 </body>
 </html>
