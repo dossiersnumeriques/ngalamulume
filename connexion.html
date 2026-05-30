@@ -1,243 +1,466 @@
-<!DOCTYPE html><html class="light" lang="fr"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Connexion Google Drive</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "outline": "#76777d",
-                    "primary-fixed-dim": "#bec6e0",
-                    "on-secondary": "#ffffff",
-                    "inverse-on-surface": "#eff1f3",
-                    "primary-fixed": "#dae2fd",
-                    "surface-tint": "#565e74",
-                    "on-tertiary-container": "#75859d",
-                    "primary": "#000000",
-                    "inverse-primary": "#bec6e0",
-                    "tertiary-container": "#0b1c30",
-                    "surface-container-high": "#e6e8ea",
-                    "surface-container": "#eceef0",
-                    "surface": "#f7f9fb",
-                    "tertiary-fixed": "#d3e4fe",
-                    "on-secondary-container": "#fefcff",
-                    "on-secondary-fixed-variant": "#004395",
-                    "primary-container": "#131b2e",
-                    "on-tertiary": "#ffffff",
-                    "secondary": "#0058be",
-                    "on-surface": "#191c1e",
-                    "secondary-fixed": "#d8e2ff",
-                    "on-tertiary-fixed": "#0b1c30",
-                    "inverse-surface": "#2d3133",
-                    "error-container": "#ffdad6",
-                    "surface-variant": "#e0e3e5",
-                    "on-error-container": "#93000a",
-                    "background": "#f7f9fb",
-                    "surface-dim": "#d8dadc",
-                    "on-primary-fixed-variant": "#3f465c",
-                    "on-primary-container": "#7c839b",
-                    "secondary-fixed-dim": "#adc6ff",
-                    "on-surface-variant": "#45464d",
-                    "secondary-container": "#2170e4",
-                    "error": "#ba1a1a",
-                    "tertiary": "#000000",
-                    "surface-container-low": "#f2f4f6",
-                    "on-secondary-fixed": "#001a42",
-                    "on-primary": "#ffffff",
-                    "surface-container-highest": "#e0e3e5",
-                    "on-background": "#191c1e",
-                    "on-primary-fixed": "#131b2e",
-                    "tertiary-fixed-dim": "#b7c8e1",
-                    "surface-container-lowest": "#ffffff",
-                    "surface-bright": "#f7f9fb",
-                    "on-error": "#ffffff",
-                    "on-tertiary-fixed-variant": "#38485d",
-                    "outline-variant": "#c6c6cd"
+<!DOCTYPE html>
+<html class="light" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Soumission de Dossier</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600;700&amp;family=JetBrains+Mono&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#dae2fd",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#565e74",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#004395",
+                        "tertiary-container": "#0b1c30",
+                        "surface": "#f7f9fb",
+                        "on-secondary-container": "#fefcff",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary-fixed": "#d8e2ff",
+                        "primary-container": "#131b2e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-primary-container": "#7c839b",
+                        "on-error": "#ffffff",
+                        "outline": "#76777d",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001a42",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-variant": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "tertiary": "#000000",
+                        "primary": "#000000",
+                        "on-surface-variant": "#45464d",
+                        "secondary": "#0058be",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-tertiary-container": "#75859d",
+                        "background": "#f7f9fb",
+                        "secondary-container": "#2170e4",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c6c6cd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "1rem",
+                        "max-width": "1440px",
+                        "gutter": "1.5rem",
+                        "sm": "0.5rem",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "xs": "0.25rem",
+                        "base": "4px",
+                        "lg": "1.5rem",
+                        "xl": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Bai Jamjuree"],
+                        "body-md": ["Bai Jamjuree"],
+                        "headline-lg": ["Bai Jamjuree"],
+                        "headline-lg-mobile": ["Bai Jamjuree"],
+                        "display-lg": ["Bai Jamjuree"],
+                        "code-sm": ["JetBrains Mono"],
+                        "body-lg": ["Bai Jamjuree"],
+                        "title-md": ["Bai Jamjuree"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "code-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                },
             },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "xl": "2rem",
-                    "margin-desktop": "2.5rem",
-                    "lg": "1.5rem",
-                    "sm": "0.5rem",
-                    "max-width": "1440px",
-                    "base": "4px",
-                    "md": "1rem",
-                    "margin-mobile": "1rem",
-                    "xs": "0.25rem",
-                    "gutter": "1.5rem"
-            },
-            "fontFamily": {
-                    "label-md": ["Bai Jamjuree"],
-                    "display-lg": ["Bai Jamjuree"],
-                    "body-md": ["Bai Jamjuree"],
-                    "code-sm": ["JetBrains Mono"],
-                    "body-lg": ["Bai Jamjuree"],
-                    "title-md": ["Bai Jamjuree"],
-                    "headline-lg-mobile": ["Bai Jamjuree"],
-                    "headline-lg": ["Bai Jamjuree"]
-            },
-            "fontSize": {
-                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                    "code-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
-                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        body { font-family: 'Bai Jamjuree', sans-serif; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid #E2E8F0;
         }
+    </script>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
+        body {
+            font-family: 'Bai Jamjuree', sans-serif !important;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 1);
+        }
+    </style>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Bai Jamjuree', sans-serif !important;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 1);
+        }
     </style>
 </head>
-<body class="bg-surface text-on-surface flex flex-col min-h-screen">
-<!-- TopNavBar -->
-<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline docked full-width top-0 z-50">
-<div class="flex justify-between items-center h-16 px-margin-desktop w-full max-w-max-width mx-auto">
-<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim">
-                Diedo Consulting
-            </div>
-<nav class="hidden md:flex gap-lg items-center">
-    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html">Accueil</a>
-    <a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-bold" href="#">Connexion</a>
-    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="apropos.html">À propos de moi</a>
-   
-    
-</nav>
-<div class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">account_circle</span>
-</div>
-</div>
-</header>
-<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile py-xl relative overflow-hidden">
-<!-- Abstract Background Decorative Element -->
-<div class="absolute top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none" style="transform: translate(1.38px, 10.02px);">
-<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary rounded-full filter blur-[120px]"></div>
-<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary-fixed-dim rounded-full filter blur-[100px]"></div>
-</div>
-<div class="w-full max-w-lg">
-<!-- Main Login Card -->
-<div class="glass-card p-xl rounded-xl shadow-sm flex flex-col gap-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
-<div class="text-center space-y-sm">
-<div class="inline-flex items-center justify-center w-16 h-16 bg-surface-container-low rounded-full mb-md">
-<span class="material-symbols-outlined text-[32px] text-secondary" style="font-variation-settings: 'FILL' 1;">cloud_sync</span>
-</div>
-<h1 class="font-headline-lg text-headline-lg text-on-surface">Synchronisation Google Drive</h1>
-<p class="font-body-md text-body-md text-on-surface-variant px-sm">
-                        Connectez votre espace de stockage pour permettre à Dieudo d'automatiser l'archivage et le traitement de vos documents juridiques en toute sécurité.
-                    </p>
-</div>
-<!-- Google Sign-In Button Container -->
-<div class="flex flex-col gap-md pt-md">
-<button class="flex items-center justify-center gap-md w-full py-md px-lg bg-white border border-outline-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg group shadow-sm active:scale-[0.98]" id="google-connect-btn">
-<img alt="Google Logo" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhgP_mvdMrHCsIBQB8Qxs1do2qwqRktaEGVyRI3guccrocsSgAgE095NfoSdby7zYp0DhEE7lwjhXrWN_R88wBaBmPjcAHkqocEYGJYd0MBFyvzMEBvE-tkILVhmsFwZvoSmS5ET09hTFbYVon_c7cPvfKL8FkzwShWdY_hKf4eSwXFm2ku0gld9ot5y7EZAF8fqsnfNnQsFEERvbzM9AXwm5iy3FiaGaMrOSfCbgoFOdAcnD7f4gmyMATNE9mY7H3MUa3dMlVhC4">
-<span class="font-title-md text-body-lg font-semibold text-[#3c4043]">Se connecter avec Google</span>
-</button><div class="flex items-center gap-md py-md"><div class="flex-grow h-px bg-outline-variant"></div><span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest px-sm">ou continuer avec un e-mail</span><div class="flex-grow h-px bg-outline-variant"></div></div><form class="flex flex-col gap-md"><div class="space-y-xs"><label for="email" class="font-label-md text-label-md text-on-surface-variant block">ADRESSE E-MAIL</label><input type="email" id="email" placeholder="nom@entreprise.com" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none font-body-md text-body-md bg-white" required=""></div><div class="space-y-xs"><div class="flex justify-between items-center"><label for="password" class="font-label-md text-label-md text-on-surface-variant">MOT DE PASSE</label><a href="#" class="font-label-md text-label-md text-secondary hover:underline">Mot de passe oublié ?</a></div><input type="password" id="password" placeholder="••••••••" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none font-body-md text-body-md bg-white" required=""></div><button type="submit" class="w-full py-md bg-secondary text-white font-title-md text-body-lg font-semibold rounded-lg hover:bg-opacity-90 transition-all shadow-md active:scale-[0.98] mt-sm">Connecter mon Drive</button></form>
-<div class="flex items-center gap-sm text-on-surface-variant justify-center py-xs">
-<span class="material-symbols-outlined text-[16px]">lock</span>
-<span class="font-label-md text-label-md">Connexion sécurisée via OAuth 2.0</span>
-</div>
-</div>
-<div class="border-t border-outline-variant mt-sm pt-lg">
-<div class="grid grid-cols-2 gap-md">
-<div class="flex flex-col gap-xs p-md bg-surface-container-lowest rounded-lg border border-outline-variant/50">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">security</span>
-<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Confidentialité</span>
-<p class="font-body-md text-[12px] leading-tight text-on-surface-variant">Accès restreint aux dossiers LexAdmin uniquement.</p>
-</div>
-<div class="flex flex-col gap-xs p-md bg-surface-container-lowest rounded-lg border border-outline-variant/50">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Conformité</span>
-<p class="font-body-md text-[12px] leading-tight text-on-surface-variant">Standard SSL 256-bit et certification RGPD.</p>
-</div>
-</div>
-</div>
-<p class="font-body-md text-[12px] text-center text-on-surface-variant opacity-70">
-                    En continuant, vous autorisez Dieudo Consulting à accéder à vos fichiers Drive conformément à nos <a class="underline hover:text-secondary" href="#">conditions d'utilisation</a>.
-                </p>
-</div>
-<!-- Trust Badges -->
-<div class="mt-xl flex justify-center items-center gap-lg opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-<div class="flex items-center gap-xs">
-<span class="material-symbols-outlined text-on-surface-variant">shield_with_heart</span>
-<span class="font-label-md text-label-md">Official Partner</span>
-</div>
-<div class="h-4 w-[1px] bg-outline-variant"></div>
-<div class="flex items-center gap-xs">
-<span class="material-symbols-outlined text-on-surface-variant">encrypted</span>
-<span class="font-label-md text-label-md">ISO 27001</span>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-low dark:bg-surface-container-high border-t border-outline-variant dark:border-outline full-width bottom-0">
-<div class="w-full py-lg px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md max-w-max-width mx-auto">
-<div class="font-label-md text-label-md font-bold text-primary">
-                © Dieudo Consulting. All rights reserved.
-            </div>
-<div class="flex flex-wrap justify-center gap-lg">
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface hover:text-secondary dark:hover:text-secondary-fixed underline transition-opacity duration-150" href="#">Privacy Policy</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface hover:text-secondary dark:hover:text-secondary-fixed underline transition-opacity duration-150" href="#">Terms of Service</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface hover:text-secondary dark:hover:text-secondary-fixed underline transition-opacity duration-150" href="#">Security Overview</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface hover:text-secondary dark:hover:text-secondary-fixed underline transition-opacity duration-150" href="#">Contact Us</a>
-</div>
-</div>
-</footer>
-<script>
-        // Micro-interaction for the connect button
-        const btn = document.getElementById('google-connect-btn');
-        btn.addEventListener('click', function() {
-            this.innerHTML = `
-                <div class="flex items-center gap-md">
-                    <svg class="animate-spin h-5 w-5 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span class="font-title-md text-body-lg font-semibold text-on-surface-variant">Redirection vers Google...</span>
-                </div>
-            `;
-            this.classList.add('opacity-80', 'pointer-events-none');
-            
-            // Artificial delay to simulate redirection
-            setTimeout(() => {
-                alert("Redirection sécurisée vers l'authentification Google OAuth...");
-                // In a real scenario, window.location.href = googleAuthUrl;
-            }, 1500);
-        });
 
-        // Atmospheric parallax effect on background elements
-        document.addEventListener('mousemove', (e) => {
-            const moveX = (e.clientX - window.innerWidth / 2) / 50;
-            const moveY = (e.clientY - window.innerHeight / 2) / 50;
-            const bg = document.querySelector('.absolute.-z-10');
-            bg.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
+<body class="bg-surface text-on-surface" style="font-family: &quot;Bai Jamjuree&quot;, sans-serif;">
+    <!-- Top Navigation Bar -->
+    <header class="bg-surface border-b border-outline-variant fixed top-0 w-full z-50">
+        <div class="flex justify-between items-center px-margin-desktop py-md w-full max-w-max-width mx-auto">
+            <div class="font-title-md text-title-md font-bold text-secondary">
+                Dieudo Consulting
+            </div>
+            <nav class="hidden md:flex gap-lg items-center">
+                <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200"
+                    href="index.html">Accueil</a>
+                <a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-bold"
+                    href="#">Dépot des Dossiers</a>
+                <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200"
+                    href="traité.html">Dossier traité</a>
+                <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200"
+                    href="tableau_bord.html">Tableau de Bord</a>
+                <div class="h-6 w-px bg-outline-variant mx-sm"></div>
+            </nav>
+        </div>
+    </header>
+    <main class="pt-24 pb-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+        <!-- Hero Section -->
+        <section class="mb-xl">
+            <h1 class="font-headline-lg text-headline-lg text-primary mb-sm">Soumission de Dossier</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Veuillez remplir le formulaire ci-dessous avec précision pour nous permettre d'étudier votre demande de
+                consultation juridique ou administrative.
+            </p>
+        </section>
+        <form class="grid grid-cols-1 lg:grid-cols-12 gap-lg" onsubmit="event.preventDefault();">
+            <!-- Left Column: Form Content -->
+            <div class="lg:col-span-8 space-y-lg">
+                <!-- Section 1: Informations personnelles -->
+                <div class="glass-card p-lg rounded-xl shadow-sm">
+                    <div class="flex items-center gap-sm mb-lg">
+                        <span class="material-symbols-outlined text-secondary">person</span>
+                        <h2 class="font-title-md text-title-md text-secondary">1. Informations personnelles</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Nom et prénom du
+                                contact</label>
+                            <input
+                                class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
+                                placeholder="Jean Dupont" type="text">
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Lien avec le
+                                déposant</label>
+                            <select
+                                class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md">
+                                <option>Direct (Moi-même)</option>
+                                <option>Collègue</option>
+                            </select>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Téléphone</label>
+                            <input
+                                class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
+                                placeholder="+33 1 23 45 67 89" type="tel">
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Email</label>
+                            <input
+                                class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
+                                placeholder="jean.dupont@email.com" type="email">
+                        </div>
+                    </div>
+                </div>
+                <!-- Section 2: Objet de la consultation -->
+                <div class="glass-card p-lg rounded-xl shadow-sm">
+                    <div class="flex items-center gap-sm mb-lg">
+                        <span class="material-symbols-outlined text-secondary">description</span>
+                        <h2 class="font-title-md text-title-md text-secondary">2. Objet de la consultation</h2>
+                    </div>
+                    <div class="grid grid-cols-1 gap-md">
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Type de service
+                                demandé</label>
+                            <select
+                                class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md">
+                                <option>Juridique</option>
+                                <option>Administratif</option>
+                                <option>Fiscalité</option>
+                                <option>Droit des affaires</option>
+                                <option>Autre</option>
+                            </select>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Dépôt de dossier
+                                (Documents justificatifs)</label>
+                            <input accept=".pdf,.jpg,.jpeg,.png" class="hidden" id="file-input" type="file">
+                            <div class="border-2 border-dashed border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center bg-surface-container-low hover:bg-secondary-container/10 hover:border-secondary transition-all cursor-pointer group"
+                                id="drop-zone">
+                                <span class="material-symbols-outlined text-outline group-hover:text-secondary mb-sm"
+                                    id="upload-icon">cloud_upload</span>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-center"
+                                    id="upload-text">Cliquez pour téléverser ou glissez-déposez vos fichiers</p>
+                                <p class="font-label-md text-label-md text-outline-variant mt-xs" id="upload-hint">PDF,
+                                    JPG, PNG (Max. 10MB)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section 3: Contexte -->
+                <div class="glass-card p-lg rounded-xl shadow-sm">
+                    <div class="flex items-center gap-sm mb-lg">
+                        <span class="material-symbols-outlined text-secondary">history_edu</span>
+                        <h2 class="font-title-md text-title-md text-secondary">3. Contexte</h2>
+                    </div>
+                    <div class="space-y-md">
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Résumé de la situation ou
+                                du problème</label>
+                            <textarea
+                                class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
+                                placeholder="Décrivez brièvement votre situation actuelle..." rows="4"></textarea>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Antécédents</label>
+                            <textarea
+                                class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
+                                placeholder="Consultations précédentes, démarches déjà entreprises..."
+                                rows="3"></textarea>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Informations
+                                complémentaires utiles</label>
+                            <textarea
+                                class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
+                                placeholder="Toute autre information pertinente..." rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section 4: Consentement et signature -->
+                <div class="glass-card p-lg rounded-xl shadow-sm">
+                    <div class="flex items-center gap-sm mb-lg">
+                        <span class="material-symbols-outlined text-secondary">verified</span>
+                        <h2 class="font-title-md text-title-md text-secondary">4. Consentement et signature</h2>
+                    </div>
+                    <div class="space-y-md">
+                        <label class="flex items-start gap-md cursor-pointer group">
+                            <input
+                                class="mt-1 rounded text-secondary focus:ring-secondary h-5 w-5 border-outline-variant"
+                                type="checkbox">
+                            <span class="font-body-md text-body-md text-on-surface-variant">Je reconnais avoir pris
+                                connaissance de la <a class="text-secondary underline" href="#">clause de
+                                    confidentialité</a> et j'accepte le traitement de mes données personnelles
+                                conformément à la réglementation en vigueur.</span>
+                        </label>
+                        <label class="flex items-start gap-md cursor-pointer group">
+                            <input
+                                class="mt-1 rounded text-secondary focus:ring-secondary h-5 w-5 border-outline-variant"
+                                type="checkbox">
+                            <span class="font-body-md text-body-md text-on-surface-variant">J'accorde mon accord
+                                explicite sur l’utilisation des informations fournies par LexAdmin Consulting dans le
+                                cadre de l'analyse de ce dossier.</span>
+                        </label>
+                        <div class="pt-md grid grid-cols-1 md:grid-cols-2 gap-md">
+                            <div class="space-y-xs">
+                                <label class="font-label-md text-label-md text-on-surface-variant">Champ de signature
+                                    (Numérique ou nom complet)</label>
+                                <input
+                                    class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md italic"
+                                    placeholder="Signé par : Nom Prénom" type="text">
+                            </div>
+                            <div class="space-y-xs">
+                                <label class="font-label-md text-label-md text-on-surface-variant">Date</label>
+                                <input
+                                    class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md"
+                                    type="date" value="2024-05-24">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-end pt-md">
+                    <button
+                        class="bg-secondary text-on-secondary px-xl py-md rounded-lg font-title-md text-title-md hover:opacity-90 transition-all flex items-center gap-md"
+                        type="submit">
+                        Soumettre le dossier
+                        <span class="material-symbols-outlined">send</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Right Column: Administrative Section -->
+            <aside class="lg:col-span-4 space-y-lg">
+                <div class="bg-surface-container-high p-lg rounded-xl border border-outline-variant sticky top-24">
+                    <div class="flex items-center gap-sm mb-md pb-sm border-b border-outline">
+                        <span class="material-symbols-outlined text-on-surface-variant">admin_panel_settings</span>
+                        <h2 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">5.
+                            Références internes</h2>
+                    </div>
+                    <div class="p-sm bg-surface-container-highest rounded mb-md text-center">
+                        <p class="font-label-md text-label-md font-bold text-on-surface-variant italic">Section réservée
+                            au cabinet</p>
+                    </div>
+                    <div class="space-y-lg">
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Numéro de dossier
+                                attribué</label>
+                            <input
+                                class="w-full rounded border-outline-variant bg-surface-container px-md py-sm font-code-sm focus:border-secondary focus:ring-1 focus:ring-secondary"
+                                type="text" value="LX-2024-PENDING">
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Date de réception</label>
+                            <input
+                                class="w-full rounded border-outline-variant bg-surface-container px-md py-sm font-code-sm focus:border-secondary focus:ring-1 focus:ring-secondary"
+                                type="date">
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Responsable
+                                affecté</label>
+                            <select
+                                class="w-full rounded border-outline-variant bg-surface-container-low py-sm px-md font-body-md">
+                                <option>En attente d'attribution</option>
+                                <option>Me Dieudonné NGALAMULUME</option>
+                            </select>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Observations
+                                internes</label>
+                            <textarea
+                                class="w-full rounded border-outline-variant bg-surface-container-low py-sm px-md font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary"
+                                placeholder="Notes du consultant..." rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="mt-xl">
+                        <img alt="Professional Consultation" class="rounded-lg shadow-sm w-full h-48 object-cover"
+                            data-alt="A professional legal consultation setting with a modern, high-end office interior. A polished wooden desk holds a leather-bound notebook and a premium fountain pen. Soft daylight enters through large windows, creating a bright and trustworthy atmosphere in a light-mode aesthetic. The color palette is composed of professional navy blues, clean whites, and warm wood tones, emphasizing reliability and administrative excellence."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWnCXR71z21hJAThKWb7muMSf7U1ZFvFMpTResM-BKTCsxoC0tse9BL0ehLrFeWJC2pATwwkYXeI856OAll2arS5-BH56DqQ8cYAqPAg_A61dQNZoRUNXGmPoerVHaLUP6koxPbmfJOuQoRUTUHI0O3V3njRGfmFzbl_qLtjZLphbnOpR-6ER5S5cGPD8SHv7zcfnVM1lG4TV5iaE0VhXwger-dDyK3nCmCCRh2TcXdM1ppUij2Po3o-e_5wjyYIpMdhjTJVEZxPw">
+                    </div>
+                </div>
+            </aside>
+        </form>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-high border-t border-outline-variant mt-xl">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-xl w-full max-w-max-width mx-auto gap-md">
+            <div class="flex flex-col items-center md:items-start gap-sm">
+                <div class="font-title-md text-title-md font-bold text-secondary">Diedo Consulting</div>
+                <p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">
+                    © Diedo Consulting. All rights reserved. Professional Legal &amp; Administrative Excellence.
+                </p>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-md">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:underline hover:text-secondary"
+                    href="#">Privacy Policy</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:underline hover:text-secondary"
+                    href="#">Terms of Service</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:underline hover:text-secondary"
+                    href="#">Cookie Policy</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:underline hover:text-secondary"
+                    href="#">Regulatory Disclosure</a>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const uploadText = document.getElementById('upload-text');
+        const uploadIcon = document.getElementById('upload-icon');
+        const uploadHint = document.getElementById('upload-hint');
+
+        if (dropZone && fileInput) {
+            // Trigger file selection
+            dropZone.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            // Handle file selection change
+            fileInput.addEventListener('change', (e) => {
+                const files = e.target.files;
+                if (files && files.length > 0) {
+                    const fileName = files[0].name;
+
+                    // Update UI to show selected file
+                    uploadIcon.textContent = 'check_circle';
+                    uploadIcon.classList.remove('text-outline');
+                    uploadIcon.classList.add('text-secondary');
+
+                    uploadText.innerHTML = `<span class="font-bold text-secondary">Fichier sélectionné :</span> <br/> ${fileName}`;
+                    uploadHint.textContent = "Cliquez à nouveau pour changer de fichier";
+
+                    // Visual feedback for successful selection
+                    dropZone.classList.add('bg-secondary-container/5', 'border-secondary');
+                }
+            });
+
+            // Simple Drag & Drop support
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('bg-secondary-container/10', 'border-secondary');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                if (!fileInput.files.length) {
+                    dropZone.classList.remove('bg-secondary-container/10', 'border-secondary');
+                } else {
+                    dropZone.classList.remove('bg-secondary-container/10');
+                }
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (e.dataTransfer.files.length > 0) {
+                    fileInput.files = e.dataTransfer.files;
+                    // Trigger the change event manually
+                    fileInput.dispatchEvent(new Event('change'));
+                }
+            });
+        }
     </script>
 
 
-</body></html>
+
+
+</body>
+
+</html>
