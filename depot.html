@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+html_content = """<!DOCTYPE html>
 <html class="light" lang="fr">
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Soumission de Dossier</title>
+    <title>Soumission de Dossier - Dieudo Consulting</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -13,50 +14,125 @@
             theme: {
                 extend: {
                     "colors": {
-                        "primary-fixed": "#dae2fd", "on-surface": "#191c1e", "error": "#ba1a1a", "surface-tint": "#565e74",
-                        "surface-container": "#eceef0", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395",
-                        "tertiary-container": "#0b1c30", "surface": "#f7f9fb", "on-secondary-container": "#fefcff",
-                        "on-primary-fixed": "#131b2e", "secondary-fixed": "#d8e2ff", "primary-container": "#131b2e",
-                        "surface-container-highest": "#e0e3e5", "surface-container-high": "#e6e8ea", "on-tertiary-fixed-variant": "#38485d",
-                        "on-tertiary-fixed": "#0b1c30", "tertiary-fixed-dim": "#b7c8e1", "on-primary-container": "#7c839b",
-                        "on-error": "#ffffff", "outline": "#76777d", "surface-dim": "#d8dadc", "on-tertiary": "#ffffff",
-                        "on-secondary-fixed": "#001a42", "surface-container-low": "#f2f4f6", "on-error-container": "#93000a",
-                        "on-primary": "#ffffff", "on-primary-fixed-variant": "#3f465c", "inverse-on-surface": "#eff1f3",
-                        "surface-variant": "#e0e3e5", "on-background": "#191c1e", "surface-bright": "#f7f9fb", "inverse-primary": "#bec6e0",
-                        "surface-container-lowest": "#ffffff", "inverse-surface": "#2d3133", "tertiary": "#000000", "primary": "#000000",
-                        "on-surface-variant": "#45464d", "secondary": "#0058be", "tertiary-fixed": "#d3e4fe", "on-tertiary-container": "#75859d",
-                        "background": "#f7f9fb", "secondary-container": "#2170e4", "error-container": "#ffdad6", "primary-fixed-dim": "#bec6e0",
-                        "on-secondary": "#ffffff", "outline-variant": "#c6c6cd"
+                        "primary-fixed": "#dae2fd",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#565e74",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#004395",
+                        "tertiary-container": "#0b1c30",
+                        "surface": "#f7f9fb",
+                        "on-secondary-container": "#fefcff",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary-fixed": "#d8e2ff",
+                        "primary-container": "#131b2e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-primary-container": "#7c839b",
+                        "on-error": "#ffffff",
+                        "outline": "#76777d",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001a42",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-variant": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "tertiary": "#000000",
+                        "primary": "#000000",
+                        "on-surface-variant": "#45464d",
+                        "secondary": "#0058be",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-tertiary-container": "#75859d",
+                        "background": "#f7f9fb",
+                        "secondary-container": "#2170e4",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c6c6cd"
                     },
-                    "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
-                    "spacing": { "md": "1rem", "max-width": "1440px", "gutter": "1.5rem", "sm": "0.5rem", "margin-desktop": "2.5rem", "margin-mobile": "1rem", "xs": "0.25rem", "base": "4px", "lg": "1.5rem", "xl": "2rem" },
-                    "fontFamily": { "label-md": ["Bai Jamjuree"], "body-md": ["Bai Jamjuree"], "headline-lg": ["Bai Jamjuree"], "headline-lg-mobile": ["Bai Jamjuree"], "display-lg": ["Bai Jamjuree"], "code-sm": ["JetBrains Mono"], "body-lg": ["Bai Jamjuree"], "title-md": ["Bai Jamjuree"] },
-                    "fontSize": { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "code-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }] }
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "1rem",
+                        "max-width": "1440px",
+                        "gutter": "1.5rem",
+                        "sm": "0.5rem",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "xs": "0.25rem",
+                        "base": "4px",
+                        "lg": "1.5rem",
+                        "xl": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Bai Jamjuree"],
+                        "body-md": ["Bai Jamjuree"],
+                        "headline-lg": ["Bai Jamjuree"],
+                        "headline-lg-mobile": ["Bai Jamjuree"],
+                        "display-lg": ["Bai Jamjuree"],
+                        "code-sm": ["JetBrains Mono"],
+                        "body-lg": ["Bai Jamjuree"],
+                        "title-md": ["Bai Jamjuree"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "code-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
                 },
             },
         }
     </script>
     <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        body { font-family: 'Bai Jamjuree', sans-serif !important; }
-        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border: 1px solid rgba(226, 232, 240, 1); }
-        /* Animations pour le modal */
-        .modal-enter { opacity: 0; transform: scale(0.9); }
-        .modal-enter-active { opacity: 1; transform: scale(1); transition: all 0.3s ease-out; }
-        .spinner { animation: spin 1s linear infinite; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Bai Jamjuree', sans-serif !important;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 1);
+        }
     </style>
 </head>
 
 <body class="bg-surface text-on-surface">
-    <header class="bg-surface border-b border-outline-variant fixed top-0 w-full z-40">
+    <header class="bg-surface border-b border-outline-variant fixed top-0 w-full z-50">
         <div class="flex justify-between items-center px-margin-desktop py-md w-full max-w-max-width mx-auto">
-            <div class="font-title-md text-title-md font-bold text-secondary">Dieudo Consulting</div>
+            <div class="font-title-md text-title-md font-bold text-secondary">
+                Dieudo Consulting
+            </div>
             <nav class="hidden md:flex gap-lg items-center">
                 <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html">Accueil</a>
-                <a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1 font-bold" href="#">Dépot des Dossiers</a>
+                <a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-bold" href="#">Dépot des Dossiers</a>
                 <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="traité.html">Dossier traité</a>
                 <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="tableau_bord.html">Tableau de Bord</a>
+                <div class="h-6 w-px bg-outline-variant mx-sm"></div>
             </nav>
         </div>
     </header>
@@ -69,8 +145,7 @@
             </p>
         </section>
 
-        <form id="dossier-form" class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
-            
+        <form id="form-depot" class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
             <div class="lg:col-span-8 space-y-lg">
                 <div class="glass-card p-lg rounded-xl shadow-sm">
                     <div class="flex items-center gap-sm mb-lg">
@@ -79,23 +154,23 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
                         <div class="space-y-xs">
-                            <label class="font-label-md text-label-md text-on-surface-variant">Nom et prénom du contact</label>
-                            <input id="input-nom" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md" placeholder="Jean Dupont" type="text">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Nom et prénom du contact *</label>
+                            <input id="input-nom" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md" placeholder="Jean Dupont" type="text">
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Lien avec le déposant</label>
-                            <select id="input-lien" class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md">
-                                <option>Direct (Moi-même)</option>
-                                <option>Collègue</option>
+                            <select id="input-lien" class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md">
+                                <option value="Direct (Moi-même)">Direct (Moi-même)</option>
+                                <option value="Collègue">Collègue</option>
                             </select>
                         </div>
                         <div class="space-y-xs">
-                            <label class="font-label-md text-label-md text-on-surface-variant">Téléphone</label>
-                            <input id="input-telephone" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md" placeholder="+33 1 23 45 67 89" type="tel">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Téléphone *</label>
+                            <input id="input-telephone" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md" placeholder="+33 1 23 45 67 89" type="tel">
                         </div>
                         <div class="space-y-xs">
-                            <label class="font-label-md text-label-md text-on-surface-variant">Email</label>
-                            <input id="input-email" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md" placeholder="jean.dupont@email.com" type="email">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Email *</label>
+                            <input id="input-email" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md" placeholder="jean.dupont@email.com" type="email">
                         </div>
                     </div>
                 </div>
@@ -108,12 +183,12 @@
                     <div class="grid grid-cols-1 gap-md">
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Type de service demandé</label>
-                            <select id="input-type-service" class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md">
-                                <option>Juridique</option>
-                                <option>Administratif</option>
-                                <option>Fiscalité</option>
-                                <option>Droit des affaires</option>
-                                <option>Autre</option>
+                            <select id="input-type-service" class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md">
+                                <option value="Juridique">Juridique</option>
+                                <option value="Administratif">Administratif</option>
+                                <option value="Fiscalité">Fiscalité</option>
+                                <option value="Droit des affaires">Droit des affaires</option>
+                                <option value="Autre">Autre</option>
                             </select>
                         </div>
                         <div class="space-y-xs">
@@ -135,16 +210,16 @@
                     </div>
                     <div class="space-y-md">
                         <div class="space-y-xs">
-                            <label class="font-label-md text-label-md text-on-surface-variant">Résumé de la situation ou du problème</label>
-                            <textarea id="input-resume" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md" placeholder="Décrivez brièvement votre situation..." rows="4"></textarea>
+                            <label class="font-label-md text-label-md text-on-surface-variant">Résumé de la situation ou du problème *</label>
+                            <textarea id="input-resume" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md" placeholder="Décrivez brièvement votre situation actuelle..." rows="4"></textarea>
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Antécédents</label>
-                            <textarea id="input-antecedents" class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md" placeholder="Consultations précédentes..." rows="3"></textarea>
+                            <textarea id="input-antecedents" class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md" placeholder="Consultations précédentes, démarches déjà entreprises..." rows="3"></textarea>
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Informations complémentaires utiles</label>
-                            <textarea id="input-infos" class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md" placeholder="Toute autre information..." rows="2"></textarea>
+                            <textarea id="input-infos" class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md" placeholder="Toute autre information pertinente..." rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -156,32 +231,36 @@
                     </div>
                     <div class="space-y-md">
                         <label class="flex items-start gap-md cursor-pointer group">
-                            <input required class="mt-1 rounded text-secondary focus:ring-secondary h-5 w-5 border-outline-variant" type="checkbox">
-                            <span class="font-body-md text-body-md text-on-surface-variant">Je reconnais avoir pris connaissance de la clause...</span>
+                            <input id="checkbox-consent1" required class="mt-1 rounded text-secondary focus:ring-secondary h-5 w-5 border-outline-variant" type="checkbox">
+                            <span class="font-body-md text-body-md text-on-surface-variant">Je reconnais avoir pris connaissance de la <a class="text-secondary underline" href="#">clause de confidentialité</a> et j'accepte le traitement de mes données personnelles conformément à la réglementation en vigueur. *</span>
+                        </label>
+                        <label class="flex items-start gap-md cursor-pointer group">
+                            <input id="checkbox-consent2" required class="mt-1 rounded text-secondary focus:ring-secondary h-5 w-5 border-outline-variant" type="checkbox">
+                            <span class="font-body-md text-body-md text-on-surface-variant">J'accorde mon accord explicite sur l’utilisation des informations fournies par LexAdmin Consulting dans le cadre de l'analyse de ce dossier. *</span>
                         </label>
                         <div class="pt-md grid grid-cols-1 md:grid-cols-2 gap-md">
                             <div class="space-y-xs">
-                                <label class="font-label-md text-label-md text-on-surface-variant">Champ de signature</label>
-                                <input id="input-signature" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md italic" placeholder="Signé par : Nom Prénom" type="text">
+                                <label class="font-label-md text-label-md text-on-surface-variant">Champ de signature (Numérique ou nom complet) *</label>
+                                <input id="input-signature" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md italic" placeholder="Signé par : Nom Prénom" type="text">
                             </div>
                             <div class="space-y-xs">
-                                <label class="font-label-md text-label-md text-on-surface-variant">Date</label>
-                                <input id="input-date-signature" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 py-sm px-md font-body-md" type="date">
+                                <label class="font-label-md text-label-md text-on-surface-variant">Date *</label>
+                                <input id="input-date-signature" required class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary py-sm px-md font-body-md" type="date" value="2024-05-24">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex justify-end pt-md">
-                    <button type="submit" class="bg-secondary text-on-secondary px-xl py-md rounded-lg font-title-md text-title-md hover:opacity-90 transition-all flex items-center gap-md shadow-md">
-                        Soumettre le dossier
-                        <span class="material-symbols-outlined">send</span>
+                    <button id="btn-submit" class="bg-secondary text-on-secondary px-xl py-md rounded-lg font-title-md text-title-md hover:opacity-90 transition-all flex items-center gap-md" type="submit">
+                        <span id="btn-text">Soumettre le dossier</span>
+                        <span id="btn-icon" class="material-symbols-outlined">send</span>
                     </button>
                 </div>
             </div>
 
             <aside class="lg:col-span-4 space-y-lg">
-                 <div class="bg-surface-container-high p-lg rounded-xl border border-outline-variant sticky top-24">
+                <div class="bg-surface-container-high p-lg rounded-xl border border-outline-variant sticky top-24">
                     <div class="flex items-center gap-sm mb-md pb-sm border-b border-outline">
                         <span class="material-symbols-outlined text-on-surface-variant">admin_panel_settings</span>
                         <h2 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">5. Références internes</h2>
@@ -189,10 +268,25 @@
                     <div class="p-sm bg-surface-container-highest rounded mb-md text-center">
                         <p class="font-label-md text-label-md font-bold text-on-surface-variant italic">Section réservée au cabinet</p>
                     </div>
-                    <div class="space-y-lg opacity-50 pointer-events-none">
+                    <div class="space-y-lg">
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface-variant">Numéro de dossier attribué</label>
-                            <input class="w-full rounded border-outline-variant bg-surface-container px-md py-sm font-code-sm" type="text" value="LX-2024-PENDING">
+                            <input id="input-num-dossier" readonly class="w-full rounded border-outline-variant bg-surface-container px-md py-sm font-code-sm focus:border-secondary focus:ring-1 focus:ring-secondary" type="text" value="LX-2024-PENDING">
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Date de réception</label>
+                            <input id="input-date-reception" readonly class="w-full rounded border-outline-variant bg-surface-container px-md py-sm font-code-sm focus:border-secondary focus:ring-1 focus:ring-secondary" type="date">
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Responsable affecté</label>
+                            <select disabled class="w-full rounded border-outline-variant bg-surface-container-low py-sm px-md font-body-md">
+                                <option>En attente d'attribution</option>
+                                <option>Me Dieudonné NGALAMULUME</option>
+                            </select>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Observations internes</label>
+                            <textarea disabled class="w-full rounded border-outline-variant bg-surface-container-low py-sm px-md font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="Notes du consultant..." rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -200,157 +294,194 @@
         </form>
     </main>
 
-    <div id="status-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden backdrop-blur-sm transition-opacity">
-        <div class="bg-surface p-xl rounded-xl shadow-2xl max-w-sm w-full mx-md text-center transform scale-95 transition-transform" id="modal-content">
-            <div id="modal-loading" class="flex flex-col items-center">
-                <span class="material-symbols-outlined text-secondary text-5xl spinner mb-md">progress_activity</span>
-                <h3 class="font-title-md text-title-md text-on-surface mb-sm">Traitement en cours...</h3>
-                <p class="font-body-md text-on-surface-variant">Veuillez patienter pendant l'envoi de votre dossier et de vos pièces jointes.</p>
-            </div>
-            
-            <div id="modal-success" class="flex flex-col items-center hidden">
-                <span class="material-symbols-outlined text-green-600 text-5xl mb-md">check_circle</span>
-                <h3 class="font-title-md text-title-md text-on-surface mb-sm">Traitement effectué !</h3>
-                <p class="font-body-md text-on-surface-variant mb-lg">Votre dossier a été soumis avec succès et enregistré dans notre base de données.</p>
-                <button onclick="closeModalAndReset()" class="bg-secondary text-on-secondary px-lg py-sm rounded-lg font-title-md hover:opacity-90 w-full">Fermer</button>
-            </div>
-
-            <div id="modal-error" class="flex flex-col items-center hidden">
-                <span class="material-symbols-outlined text-error text-5xl mb-md">error</span>
-                <h3 class="font-title-md text-title-md text-error mb-sm">Erreur lors de l'envoi</h3>
-                <p class="font-body-md text-on-surface-variant mb-lg" id="error-message">Une erreur est survenue. Veuillez réessayer.</p>
-                <button onclick="closeModal()" class="border border-outline text-on-surface px-lg py-sm rounded-lg font-title-md hover:bg-surface-container w-full">Retour</button>
-            </div>
+    <div id="modal-loading" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
+        <div class="bg-white p-lg rounded-xl max-w-sm w-full mx-md text-center shadow-xl">
+            <div class="animate-spin inline-block w-12 h-12 border-4 border-secondary border-t-transparent rounded-full mb-md"></div>
+            <p class="font-title-md text-title-md font-bold text-on-surface">Envoi en cours...</p>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-sm">Veuillez patienter pendant l'intégration de votre dossier.</p>
         </div>
     </div>
 
+    <div id="modal-error-sync" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
+        <div class="bg-white p-xl rounded-xl max-w-md w-full mx-md text-center shadow-xl border border-outline-variant">
+            <span class="material-symbols-outlined text-error text-5xl mb-md">error</span>
+            <h3 class="text-error font-title-md text-xl font-bold mb-sm">Erreur de synchronisation</h3>
+            <p class="font-body-md text-on-surface-variant mb-lg">Une anomalie est survenue lors de l'intégration.<br/>Veuillez vérifier votre connexion ou l'URL du script.</p>
+            <button onclick="closeModal('modal-error-sync')" class="w-full bg-secondary text-on-secondary py-md px-xl rounded-lg font-title-md hover:opacity-90 transition-all">Fermer</button>
+        </div>
+    </div>
+
+    <div id="modal-error-send" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
+        <div class="bg-white p-xl rounded-xl max-w-md w-full mx-md text-center shadow-xl border border-outline-variant">
+            <span class="material-symbols-outlined text-error text-5xl mb-md">warning</span>
+            <h3 class="text-error font-title-md text-xl font-bold mb-sm">Erreur lors de l'envoi</h3>
+            <p class="font-body-md text-on-surface-variant mb-lg">Une erreur est survenue lors du traitement. Veuillez réessayer.</p>
+            <button onclick="closeModal('modal-error-send')" class="w-full border border-outline-variant py-md px-xl rounded-lg font-title-md hover:bg-surface-container transition-all">Retour</button>
+        </div>
+    </div>
+
+    <div id="modal-success" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
+        <div class="bg-white p-xl rounded-xl max-w-md w-full mx-md text-center shadow-xl border border-outline-variant">
+            <span class="material-symbols-outlined text-emerald-600 text-5xl mb-md">check_circle</span>
+            <h3 class="text-emerald-600 font-title-md text-xl font-bold mb-sm">Dossier Transmis !</h3>
+            <p class="font-body-md text-on-surface-variant mb-lg">Votre dossier a été enregistré avec succès et est en cours de traitement.</p>
+            <button onclick="closeModal('modal-success'); document.getElementById('form-depot').reset(); resetUploadUI();" class="w-full bg-secondary text-on-secondary py-md px-xl rounded-lg font-title-md hover:opacity-90 transition-all">Super !</button>
+        </div>
+    </div>
+
+    <footer class="bg-surface-container-high border-t border-outline-variant mt-xl">
+        <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-xl w-full max-w-max-width mx-auto gap-md">
+            <div class="flex flex-col items-center md:items-start gap-sm">
+                <div class="font-title-md text-title-md font-bold text-secondary">Dieudo Consulting</div>
+                <p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">
+                    © Dieudo Consulting. Tous droits réservés. Excellence Juridique & Administrative.
+                </p>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-md">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:underline hover:text-secondary" href="#">Politique de Confidentialité</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:underline hover:text-secondary" href="#">Conditions d'utilisation</a>
+            </nav>
+        </div>
+    </footer>
+
     <script>
-        // --- 1. Gestion de la zone de dépôt de fichier (Interface) ---
+        // --- CONFIGURATION REQUIS ---
+        // Remplacer par l'URL exacte récupérée de votre déploiement Google Apps Script (Web App)
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbydHb2igWRI0FTiBq1zcndNYeO3bTPIFqBEk2js-X0kqb2NQ2TzaVSj3iP2orVB5dpA/exec';
+
         const dropZone = document.getElementById('drop-zone');
         const fileInput = document.getElementById('file-input');
         const uploadText = document.getElementById('upload-text');
         const uploadIcon = document.getElementById('upload-icon');
         const uploadHint = document.getElementById('upload-hint');
+        const formDepot = document.getElementById('form-depot');
 
-        dropZone.addEventListener('click', () => fileInput.click());
+        // Set current date on administrative field just for visual completeness
+        document.getElementById('input-date-reception').valueAsDate = new Date();
 
-        fileInput.addEventListener('change', (e) => {
-            const files = e.target.files;
-            if (files && files.length > 0) {
-                uploadIcon.textContent = 'check_circle';
-                uploadIcon.className = 'material-symbols-outlined text-secondary mb-sm';
-                uploadText.innerHTML = `<span class="font-bold text-secondary">Fichier sélectionné :</span> <br/> ${files[0].name}`;
-                uploadHint.textContent = "Cliquez pour changer de fichier";
-                dropZone.classList.add('bg-secondary-container/5', 'border-secondary');
-            }
-        });
+        // Modal triggers helpers
+        function showModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        // --- 2. Gestion de la soumission du formulaire et Appel à Google Apps Script ---
-        
-        // ⚠️ REMPLACEZ CETTE URL PAR CELLE OBTENUE À L'ÉTAPE 1 DANS APPS SCRIPT
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbydHb2igWRI0FTiBq1zcndNYeO3bTPIFqBEk2js-X0kqb2NQ2TzaVSj3iP2orVB5dpA/exec';
-
-        const form = document.getElementById('dossier-form');
-        const modal = document.getElementById('status-modal');
-        const modalContent = document.getElementById('modal-content');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Empêche le rechargement de la page
-            
-            showModal('loading'); // Affiche "Traitement en cours"
-
-            // Collecte des données texte
-            const formData = {
-                nom: document.getElementById('input-nom').value,
-                lien: document.getElementById('input-lien').value,
-                telephone: document.getElementById('input-telephone').value,
-                email: document.getElementById('input-email').value,
-                typeService: document.getElementById('input-type-service').value,
-                resume: document.getElementById('input-resume').value,
-                antecedents: document.getElementById('input-antecedents').value,
-                infosExtra: document.getElementById('input-infos').value,
-                signature: document.getElementById('input-signature').value,
-                dateSignature: document.getElementById('input-date-signature').value,
-                fileData: null,
-                fileName: null,
-                mimeType: null
-            };
-
-            const file = fileInput.files[0];
-
-            try {
-                // Si un fichier est présent, on le convertit en Base64
-                if (file) {
-                    const base64Info = await getBase64(file);
-                    // L'API FileReader renvoie "data:image/png;base64,iVBORw0K..."
-                    // On sépare la chaîne pour ne garder que la partie base64 pure
-                    formData.fileData = base64Info.split(',')[1]; 
-                    formData.fileName = file.name;
-                    formData.mimeType = file.type;
-                }
-
-                // Envoi des données vers Google Apps Script
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(formData)
-                });
-
-                const result = await response.json();
-
-                if (result.status === 'success') {
-                    showModal('success'); // Affiche "Traitement effectué"
-                } else {
-                    throw new Error(result.message);
-                }
-
-            } catch (error) {
-                console.error("Erreur:", error);
-                showModal('error'); // Affiche l'erreur
-            }
-        });
-
-        // --- 3. Fonctions Utilitaires ---
-
-        // Fonction pour convertir un fichier en Base64
-        function getBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = error => reject(error);
-            });
-        }
-
-        // Fonctions pour gérer le popup (Modal)
-        function showModal(state) {
-            modal.classList.remove('hidden');
-            setTimeout(() => modalContent.classList.remove('scale-95'), 10);
-            
-            document.getElementById('modal-loading').classList.add('hidden');
-            document.getElementById('modal-success').classList.add('hidden');
-            document.getElementById('modal-error').classList.add('hidden');
-            
-            document.getElementById(`modal-${state}`).classList.remove('hidden');
-        }
-
-        function closeModal() {
-            modalContent.classList.add('scale-95');
-            setTimeout(() => modal.classList.add('hidden'), 300);
-        }
-
-        function closeModalAndReset() {
-            closeModal();
-            form.reset(); // Vide les champs du formulaire
-            // Réinitialise la zone de drop
+        function resetUploadUI() {
             uploadIcon.textContent = 'cloud_upload';
-            uploadIcon.className = 'material-symbols-outlined text-outline group-hover:text-secondary mb-sm';
+            uploadIcon.classList.remove('text-secondary');
+            uploadIcon.classList.add('text-outline');
             uploadText.textContent = "Cliquez pour téléverser ou glissez-déposez vos fichiers";
             uploadHint.textContent = "PDF, JPG, PNG (Max. 10MB)";
             dropZone.classList.remove('bg-secondary-container/5', 'border-secondary');
         }
 
-        // Initialisation de la date d'aujourd'hui par défaut pour la signature
-        document.getElementById('input-date-signature').valueAsDate = new Date();
+        if (dropZone && fileInput) {
+            dropZone.addEventListener('click', () => fileInput.click());
+
+            fileInput.addEventListener('change', (e) => {
+                const files = e.target.files;
+                if (files && files.length > 0) {
+                    const fileName = files[0].name;
+                    uploadIcon.textContent = 'check_circle';
+                    uploadIcon.classList.remove('text-outline');
+                    uploadIcon.classList.add('text-secondary');
+                    uploadText.innerHTML = `<span class="font-bold text-secondary">Fichier sélectionné :</span> <br/> \${fileName}`;
+                    uploadHint.textContent = "Cliquez à nouveau pour changer de fichier";
+                    dropZone.classList.add('bg-secondary-container/5', 'border-secondary');
+                }
+            });
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('bg-secondary-container/10', 'border-secondary');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                if (!fileInput.files.length) {
+                    dropZone.classList.remove('bg-secondary-container/10', 'border-secondary');
+                } else {
+                    dropZone.classList.remove('bg-secondary-container/10');
+                }
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (e.dataTransfer.files.length > 0) {
+                    fileInput.files = e.dataTransfer.files;
+                    fileInput.dispatchEvent(new Event('change'));
+                }
+            });
+        }
+
+        // Form Submit Handler with Fetch Integration
+        formDepot.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Show loading modal
+            showModal('modal-loading');
+
+            try {
+                // Collect standard form fields data
+                const formData = {
+                    nom: document.getElementById('input-nom').value,
+                    lien: document.getElementById('input-lien').value,
+                    telephone: document.getElementById('input-telephone').value,
+                    email: document.getElementById('input-email').value,
+                    typeService: document.getElementById('input-type-service').value,
+                    resume: document.getElementById('input-resume').value,
+                    antecedents: document.getElementById('input-antecedents').value,
+                    infos: document.getElementById('input-infos').value,
+                    signature: document.getElementById('input-signature').value,
+                    dateSignature: document.getElementById('input-date-signature').value,
+                    numDossier: document.getElementById('input-num-dossier').value,
+                    fileData: null,
+                    fileName: null
+                };
+
+                // Check and parse attached file if existing
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    formData.fileName = file.name;
+                    
+                    // Convert file to Base64 to safely transmit through JSON POST
+                    formData.fileData = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result.split(',')[1]); // Keep only pure base64 payload
+                        reader.onerror = (error) => reject(error);
+                        reader.readAsDataURL(file);
+                    });
+                }
+
+                if (GOOGLE_SCRIPT_URL === 'VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI' || !GOOGLE_SCRIPT_URL.startsWith('http')) {
+                    closeModal('modal-loading');
+                    showModal('modal-error-sync');
+                    console.error("Erreur: L'URL Google Apps Script n'est pas configurée correctement.");
+                    return;
+                }
+
+                // Send data using a standard POST request
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // mandatory for Google Macro responses to avoid complex pre-flight CORS blocks
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Since 'no-cors' gives opaque responses, we treat any network resolution as a potential success, 
+                // but if your script returns custom JSON, make sure CORS is handled in Apps Script code instead.
+                closeModal('modal-loading');
+                showModal('modal-success');
+
+            } catch (error) {
+                closeModal('modal-loading');
+                showModal('modal-error-send');
+                console.error("Erreur de transmission détaillée:", error);
+            }
+        });
     </script>
 </body>
 </html>
+"""
+
+with open("depot_corrige.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+print("File written successfully.")
