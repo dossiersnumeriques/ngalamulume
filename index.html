@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>DIEUDO CONSULTING | Excellence en Conseil Juridique</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#170f0a", // Brun profond (Primary from Design System)
+                        "on-primary": "#ffffff",
+                        "secondary": "#7d562d", // Secondary from Design System
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#14100a",
+                        "surface": "#fff8f4", // Background/Surface from Design System (Crème)
+                        "on-surface": "#1f1b17", // On-surface from Design System
+                        "on-surface-variant": "#4e4540",
+                        "background": "#fff8f4",
+                        "outline": "#7f756f",
+                        "outline-variant": "#d1c4bd",
+                        "primary-container": "#2d241e", // Custom color from Design System
+                        "on-primary-container": "#988a82",
+                        "surface-container": "#f6ece5",
+                        "surface-container-low": "#fcf2ea",
+                        "surface-container-high": "#f1e6df",
+                        "surface-container-highest": "#ebe1da",
+                        "surface-bright": "#fff8f4",
+                        "surface-dim": "#e2d8d1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "section-gap": "120px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Bai Jamjuree", "sans-serif"],
+                        "body-md": ["Bai Jamjuree", "sans-serif"],
+                        "label-caps": ["Bai Jamjuree", "sans-serif"],
+                        "headline-lg": ["Bai Jamjuree", "sans-serif"],
+                        "body-lg": ["Bai Jamjuree", "sans-serif"],
+                        "label-sm": ["Bai Jamjuree", "sans-serif"],
+                        "headline-md": ["Bai Jamjuree", "sans-serif"],
+                        "headline-xl-mobile": ["Bai Jamjuree", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["36px", { "lineHeight": "44px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-xl-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .smooth-scroll-anchor {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Bai Jamjuree', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-headline-md,
+        .font-headline-lg,
+        .font-headline-xl,
+        .logo-font {
+            font-family: 'Bai Jamjuree', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-outline-variant transition-all duration-300"
+        id="navbar">
+        <div
+            class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md font-bold tracking-tight text-primary logo-font">
+                Dieudo Consulting
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-label-caps hover:text-secondary transition-colors duration-300 text-primary border-b-2 border-primary text-body-lg font-bold"
+                    href="#a-propos">À propos</a>
+                <a class="font-label-caps hover:text-secondary transition-colors duration-300 text-on-surface-variant text-body-lg font-bold"
+                    href="#depot-dossier">Dépôt dossier</a>
+                <a class="font-label-caps hover:text-secondary transition-colors duration-300 text-on-surface-variant text-body-lg font-bold"
+                    href="#dossiers-traites">Dossiers traités</a>
+                <a class="font-label-caps hover:text-secondary transition-colors duration-300 text-on-surface-variant text-body-lg font-bold"
+                    href="#contact">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                
+                <!-- 
+                <button
+                    class="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps tracking-widest uppercase hover:bg-secondary transition-all duration-300">
+                    Consultation
+                </button>
+                -->
+                <button class="md:hidden text-primary">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center pt-20 bg-primary">
+            <div class="absolute inset-0 z-0 opacity-15">
+                <img alt="Legal Expertise Hero" class="w-full h-full object-cover grayscale"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyXc1Gdrhk_g54zII5R3Jflg00gaRUW5TPPnjfmnBRLFBoUtDk-U-XqV57pGr35Tq982-rhNiw3tRrR3a6wAqK_M-ujjsf59PJ_oC_y2R1Nez_hG80Q0x3V-dKRA1iZnQDwq-COr1PE1LzpwATumc7agJ4353O-GChtfhJ8slnIkRO7W82-qxSbEE1lTYKRWqUMkegGTNt96pNwzE5EVdQug7m6uqFj6Rp99qLQKtbOwK1q7-ZAjPeKskxVh1NnyJXETFlr4YZrRs">
+            </div>
+            <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+                <div class="max-w-3xl">
+                    <span
+                        class="font-label-caps text-label-caps text-surface-container-highest mb-6 block tracking-widest uppercase">Est.
+                        2024 • Stratégie Corporative</span>
+                    <h1
+                        class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-primary mb-8 leading-tight">
+                        Votre Stratégie Juridique, <br>Notre Expertise
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-surface-dim mb-12 max-w-xl">
+                        Des solutions juridiques sur mesure pour les entreprises et les particuliers exigeants. Nous
+                        transformons la complexité en clarté stratégique.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <!-- Hero Section 
+                        <button
+                            class="bg-surface text-primary px-10 py-5 font-label-caps text-label-caps font-bold uppercase tracking-widest hover:bg-surface-container transition-all">
+                            Consultation Gratuite
+                        </button>
+                        <button
+                            class="border border-surface text-surface px-10 py-5 font-label-caps text-label-caps font-bold uppercase tracking-widest hover:bg-surface/10 transition-all">
+                            Nos Services
+                        </button>
+                        -->
+                        <div class="mt-10">
+                            <a class="inline-block bg-surface text-primary px-8 py-4 font-label-caps text-label-caps font-bold uppercase tracking-widest hover:bg-surface-container transition-all"
+                                href="#depot-dossier">
+                                SOUMETTRE UN DOSSIER
+                            </a>
+                        </div>
+
+                        <div class="mt-10">
+                            <a class="inline-block bg-surface text-primary px-8 py-4 font-label-caps text-label-caps font-bold uppercase tracking-widest hover:bg-surface-container transition-all"
+                                href="bordtable.html">
+                                TABLEAU DE BORD
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- À Propos (ID: a-propos) -->
+        <section class="py-section-gap bg-surface-container-low" id="a-propos">
+            <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-5 relative">
+                        <div class="aspect-[3/4] overflow-hidden border border-outline-variant shadow-xl bg-surface">
+                            <img alt="Maître Dieudonné NGALAMULUME" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdMbe-E7qPaiQ2kSp8IzixQKJ-S3Iad_c3YdRRFGPdZ67fGAlCB6H7qtgQlJpUEwROHzRZ-nUsZAEfDdTucXF_xG9_cKG5zaqa-tuJYEmUaNYS3El0KwkcJHc9UwnVfU2aILe-wwrmHQdc9Sy6Ls6PLLGtY_bmlfCFlTFTEzYklOKZVh_CqKmlLz8Wn56wXGWoel1GI82wJjhXmIZv8t6wM_y3TtrfHZ2LgMX21VuCFyvmKBdGgEU76UlYQD8fS-3oyjHyMQkCaec">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-primary p-6 hidden md:block">
+                            <div class="text-on-primary font-headline-md">15+ Ans</div>
+                            <div class="text-surface-dim text-label-caps uppercase">D'Expertise</div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <span
+                            class="font-label-caps text-label-caps text-secondary mb-4 block tracking-widest uppercase">Fondateur
+                            &amp; Associé Principal</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Maître Dieudonné NGALAMULUME
+                        </h2>
+                        <div class="space-y-6 mb-12">
+                            <p class="font-body-lg text-on-surface leading-relaxed">Avocat de renom et stratège
+                                juridique, Maître Dieudonné NGALAMULUME a bâti sa carrière sur l'excellence et la
+                                défense rigoureuse des intérêts corporatifs. Sa vision allie une connaissance profonde
+                                du droit des affaires à une approche pragmatique des enjeux internationaux.</p>
+                        </div>
+                        <div class="space-y-8">
+                            <h3
+                                class="font-label-caps text-label-caps text-primary font-bold border-b border-outline-variant pb-2 uppercase tracking-widest">
+                                Parcours Professionnel</h3>
+                            <div class="space-y-6">
+                                <div class="flex gap-6 items-start">
+                                    <div class="font-bold text-secondary font-body-md w-16 flex-shrink-0">2024 </div>
+                                    <div class="border-l-2 border-primary pl-6">
+                                        <div><span class="font-bold text-on-surface">Conseiller</span>
+                                        </div>
+                                        <div class="text-on-surface-variant text-label-sm">Ministère de l'enseignement supérieur</div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6 items-start">
+                                    <div class="font-bold text-secondary font-body-md w-16 flex-shrink-0">2020 2023</div>
+                                    <div class="border-l-2 border-outline-variant pl-6">
+                                        <div><span class="font-bold text-on-surface">Conseiller Juridique</span></div>
+                                        <div class="text-on-surface-variant text-label-sm">Ministère près le Président de la République</div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6 items-start">
+                                    <div class="font-bold text-secondary font-body-md w-16 flex-shrink-0">2018</div>
+                                    <div class="border-l-2 border-outline-variant pl-6">
+                                        <div><span class="font-bold text-on-surface">Conseiller</span></div>
+                                        <div class="text-on-surface-variant text-label-sm">Sécrétariat général de l'UDPS</div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6 items-start">
+                                    <div class="font-bold text-secondary font-body-md w-16 flex-shrink-0">2015</div>
+                                    <div class="border-l-2 border-outline-variant pl-6">
+                                        <div><span class="font-bold text-on-surface">Diplômé</span></div>
+                                        <div class="text-on-surface-variant text-label-sm">Master en Droit des Sociétés
+                                            (Université de Kinshasa)</div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6 items-start">
+                                    <div class="font-bold text-secondary font-body-md w-16 flex-shrink-0">2014</div>
+                                    <div class="border-l-2 border-outline-variant pl-6">
+                                        <div><span class="font-bold text-on-surface">DG</span></div>
+                                        <div class="text-on-surface-variant text-label-sm">Washington school</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Dépôt dossier (ID: depot-dossier) -->
+        <section class="py-section-gap bg-primary-container text-on-primary" id="depot-dossier">
+            <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="font-headline-lg text-headline-lg text-white mb-6">Processus de soumission &amp; Valeur
+                        ajoutée</h2>
+                    <p class="font-body-md text-surface-container-highest/80 leading-relaxed">
+                        Soumettre votre cas à Dieudo Consulting, c'est l'assurance d'une prise en charge d'élite. Notre
+                        protocole sécurisé permet une transmission fluide de vos données confidentielles, traitées avec
+                        la plus haute rigueur déontologique.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-12">
+                        <div class="flex gap-6">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 border border-outline/30 flex items-center justify-center bg-primary">
+                                <span class="font-headline-md text-white">01</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md mb-2 text-white">Analyse Préliminaire Stratégique</h4>
+                                <p class="text-surface-container-highest/80 font-body-md">Dès réception, votre dossier
+                                    est soumis à un premier comité de lecture composé d'experts seniors. Cette étape
+                                    gratuite nous permet d'évaluer la viabilité et les enjeux majeurs de votre demande.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 border border-outline/30 flex items-center justify-center bg-primary">
+                                <span class="font-headline-md text-white">02</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md mb-2 text-white">Sécurisation des Données</h4>
+                                <p class="text-surface-container-highest/80 font-body-md">Nous utilisons des protocoles
+                                    de chiffrement de bout en bout pour le transfert de vos pièces justificatives,
+                                    garantissant une confidentialité absolue conforme aux standards internationaux les
+                                    plus stricts.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 border border-outline/30 flex items-center justify-center bg-primary">
+                                <span class="font-headline-md text-white">03</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md mb-2 text-white">Orientation Sous 48 Heures</h4>
+                                <p class="text-surface-container-highest/80 font-body-md">Nous nous engageons à vous
+                                    fournir un retour structuré sous 48 heures ouvrées, proposant une feuille de route
+                                    claire ou une recommandation stratégique initiale.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary p-10 border border-outline/20 shadow-2xl">
+                        <h3 class="font-headline-md text-white mb-6">Pourquoi nous confier votre dossier ?</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-secondary">verified</span>
+                                <p class="text-white font-body-md"><strong class="text-surface-bright">Expertise
+                                        Multidisciplinaire :</strong> Un regard croisé sur les aspects civils, fiscaux
+                                    et corporatifs.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-secondary">history_edu</span>
+                                <p class="text-white font-body-md"><strong class="text-surface-bright">Rédaction d'Élite
+                                        :</strong> Une clarté rédactionnelle qui fait la différence devant les instances
+                                    décisionnelles.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-secondary">rocket_launch</span>
+                                <p class="text-white font-body-md"><strong class="text-surface-bright">Agilité Tactique
+                                        :</strong> Une capacité de réaction rapide pour saisir les opportunités
+                                    juridiques.</p>
+                            </li>
+                        </ul>
+                        <div class="mt-10">
+                            <a class="inline-block bg-surface text-primary px-8 py-4 font-label-caps text-label-caps font-bold uppercase tracking-widest hover:bg-surface-container transition-all"
+                                href="https://forms.gle/7gTwJ6Vjc2N5FGcx5">
+                                SOUMETTRE UN DOSSIER
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Dossiers traités (ID: dossiers-traites) -->
+        <section class="py-section-gap bg-surface-bright" id="dossiers-traites">
+            <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                    <div class="max-w-xl">
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Une efficacité démontrée par les
+                            chiffres.</h2>
+                        <p class="font-body-md text-on-surface-variant">Notre méthodologie rigoureuse garantit une
+                            approche structurée pour chaque dossier, alliant expertise technique et vision stratégique
+                            pour sécuriser vos intérêts.</p>
+                    </div>
+                    <div class="flex gap-12">
+                        <div class="text-center">
+                            <div class="font-headline-xl text-primary">500+</div>
+                            <div class="font-label-caps text-label-caps text-on-surface-variant uppercase">Cas Résolus
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-headline-xl text-primary">98%</div>
+                            <div class="font-label-caps text-label-caps text-on-surface-variant uppercase">Satisfaction
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="p-8 border border-outline-variant bg-surface-container-low hover:bg-surface-container-highest transition-colors">
+                        <div
+                            class="w-12 h-12 bg-surface-container flex items-center justify-center text-secondary mb-6">
+                            <span class="material-symbols-outlined">analytics</span>
+                        </div>
+                        <h4 class="font-headline-md mb-4 text-primary">Diagnostic &amp; Audit</h4>
+                        <p class="font-body-md text-on-surface-variant">Chaque dossier débute par une analyse exhaustive
+                            des risques et opportunités. Nous auditons les pièces contractuelles et le contexte
+                            réglementaire pour définir une stratégie sur mesure.</p>
+                    </div>
+                    <div
+                        class="p-8 border border-outline-variant bg-surface-container-low hover:bg-surface-container-highest transition-colors">
+                        <div
+                            class="w-12 h-12 bg-surface-container flex items-center justify-center text-secondary mb-6">
+                            <span class="material-symbols-outlined">gavel</span>
+                        </div>
+                        <h4 class="font-headline-md mb-4 text-primary">Ingénierie Juridique</h4>
+                        <p class="font-body-md text-on-surface-variant">Nos experts conçoivent des solutions innovantes,
+                            qu'il s'agisse de montages contractuels complexes ou de stratégies de défense, en
+                            privilégiant toujours l'efficacité opérationnelle.</p>
+                    </div>
+                    <div
+                        class="p-8 border border-outline-variant bg-surface-container-low hover:bg-surface-container-highest transition-colors">
+                        <div
+                            class="w-12 h-12 bg-surface-container flex items-center justify-center text-secondary mb-6">
+                            <span class="material-symbols-outlined">verified_user</span>
+                        </div>
+                        <h4 class="font-headline-md mb-4 text-primary">Exécution &amp; Suivi</h4>
+                        <p class="font-body-md text-on-surface-variant">Nous assurons le déploiement rigoureux des
+                            solutions retenues et un suivi post-résolution pour garantir la pérennité juridique de vos
+                            actifs et de vos transactions.</p>
+                    </div>
+                </div>
+                <!-- Performance Statistics Text -->
+                <div class="mt-20 border-t border-outline-variant pt-12">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="font-headline-md text-primary mb-6">Un Savoir-faire Reconnu</h3>
+                            <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                                Notre excellence ne se mesure pas seulement en victoires judiciaires, mais en risques
+                                évités et en actifs sécurisés. Au cours des 12 derniers mois, Dieudo Consulting a supervisé
+                                plus de <strong>1,2 milliard d'euros</strong> de transactions cumulées.
+                            </p>
+                            <p class="font-body-md text-on-surface-variant leading-relaxed">
+                                Notre expertise en arbitrage international nous permet de dénouer des situations
+                                bloquées en un temps record, avec une moyenne de résolution de dossiers <strong>30% plus
+                                    rapide</strong> que la moyenne du secteur.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="bg-primary text-on-primary p-8 text-center">
+                                <div class="font-headline-lg text-on-primary">85%</div>
+                                <div class="font-label-caps text-xs opacity-80 mt-2 uppercase">Dossiers Résolus Amiable
+                                </div>
+                            </div>
+                            <div class="bg-surface-container-highest text-primary p-8 text-center">
+                                <div class="font-headline-lg">15+</div>
+                                <div class="font-label-caps text-xs opacity-80 mt-2 uppercase">Juridictions Couvertes
+                                </div>
+                            </div>
+                            <div class="bg-surface p-8 text-center border border-outline-variant">
+                                <div class="font-headline-lg text-primary">24h</div>
+                                <div class="font-label-caps text-xs text-on-surface-variant mt-2 uppercase">Réponse
+                                    Moyenne</div>
+                            </div>
+                            <div class="bg-surface p-8 text-center border border-outline-variant">
+                                <div class="font-headline-lg text-primary">100%</div>
+                                <div class="font-label-caps text-xs text-on-surface-variant mt-2 uppercase">
+                                    Confidentialité</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact (ID: contact) -->
+        <section class="py-section-gap bg-surface-container-low border-t border-outline-variant" id="contact">
+            <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 gap-24 mx-auto max-w-3xl">
+                    <div>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Commençons une collaboration.
+                        </h2>
+                        <p class="font-body-md text-on-surface-variant mb-12">Nos bureaux vous accueillent pour des
+                            sessions de conseil confidentielles. Nos experts sont également disponibles pour des
+                            visioconférences sécurisées.</p>
+                        <div class="space-y-10">
+                            <!-- Clear Contact Details -->
+                            <div class="flex gap-6">
+                                <div
+                                    class="w-12 h-12 bg-surface-container-highest flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-label-caps text-label-caps text-primary mb-1 uppercase font-bold">
+                                        Siège Social</h5>
+                                    <p class="font-body-md text-on-surface-variant">12 Avenue Montaigne, 75008 Paris,
+                                        France</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div
+                                    class="w-12 h-12 bg-surface-container-highest flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">phone</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-label-caps text-label-caps text-primary mb-1 uppercase font-bold">
+                                        Ligne Directe</h5>
+                                    <p class="font-body-md text-on-surface-variant">+243 (0)1 45 67 89 00</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div
+                                    class="w-12 h-12 bg-surface-container-highest flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">mail</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-label-caps text-label-caps text-primary mb-1 uppercase font-bold">
+                                        Secrétariat</h5>
+                                    <p class="font-body-md text-on-surface-variant">contact@legalstrategy.com</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div
+                                    class="w-12 h-12 bg-surface-container-highest flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-label-caps text-label-caps text-primary mb-1 uppercase font-bold">
+                                        Horaires</h5>
+                                    <p class="font-body-md text-on-surface-variant">Lundi - Vendredi: 09:00 - 19:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-primary text-white border-t border-primary-container">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
+            <div class="space-y-6">
+                <div class="font-headline-md text-headline-md text-white logo-font">DIEUDO CONSULTING</div>
+                <p class="text-surface-dim/70 font-body-md">Conseil juridique d'élite pour stratégies d'excellence.</p>
+                <div class="flex gap-4">
+                    <a class="text-surface-dim hover:text-white transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-surface-dim hover:text-white transition-colors" href="#"><span
+                            class="material-symbols-outlined">link</span></a>
+                </div>
+            </div>
+            <div class="space-y-12">
+                <h6 class="font-label-caps text-label-caps text-white font-bold uppercase">Services</h6>
+                <ul class="space-y-4 text-surface-dim/70 font-label-sm">
+                    <li class=""><a class="hover:text-white transition-all" href="#">Droit des Affaires</a></li>
+                    <li class=""><a class="hover:text-white transition-all" href="#">Propriété Intellectuelle</a></li>
+                    <li class=""><a class="hover:text-white transition-all" href="#">Fiscalité Internationale</a></li>
+                    <li class=""><a class="hover:text-white transition-all" href="#">Contentieux &amp; Arbitrage</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h6 class="font-label-caps text-label-caps text-white font-bold uppercase">Liens Utile</h6>
+                <ul class="space-y-4 text-surface-dim/70 font-label-sm">
+                    <li class=""><a class="hover:text-white transition-all" href="#a-propos">Qui-suis-je !</a></li>
+                    <li class=""><a class="hover:text-white transition-all" href="#dossiers-traites">Dossier traitées</a></li>
+                    <li class=""><a class="hover:text-white transition-all" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            
+
+        </div>
+        <div
+            class="border-t border-primary-container py-8 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-surface-dim/50 text-label-sm">© 2026 DC Agency. All rights reserved.</div>
+                <div class="flex gap-8 text-surface-dim/50 text-label-sm uppercase tracking-wider">
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Micro-interactions and Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('py-4', 'py-2');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('py-2', 'py-4');
+            }
+        });
+
+        // Simple smooth scroll highlighting logic
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('nav a').forEach(link => {
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('text-primary', 'border-b-2', 'border-primary');
+                            link.classList.remove('text-on-surface-variant');
+                        } else {
+                            link.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                            link.classList.add('text-on-surface-variant');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
